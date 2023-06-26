@@ -186,7 +186,7 @@ p{
     padding-left: 0;
 }
 .navbar-nav .nav-item .contact_us{
-    background-color: #d594aa;
+    background-color: #e7cbae;
     color: var(--e-global-color-accent) !important;
     padding: 20px 50px;
     text-align: center;
@@ -231,7 +231,7 @@ p{
 }
 .left_icons ul li i:hover{
     background-color: var(--e-global-color-white);
-    color: #981642;
+    color: #d6908c;
 }
 
 /* Home Page Banner Section Style */
@@ -277,7 +277,7 @@ p{
     }
 }
 .banner-section-content h1 span{
-    color: #d594aa;
+    color: #e7cbae;
     border-right: #d594aa;
 }
 .banner-section-outer .banner-section p{
@@ -298,13 +298,13 @@ p{
     text-align: center;
     color: var(--e-global-color-accent);
     display: inline-block;
-    background-color: #d594aa;
+    background-color: #e7cbae;
     border-radius: 35px 0px 35px 0px;
     transition: all 0.3s ease-in-out;
     overflow: hidden;
 }
 .banner-section-outer .btn_wrapper .getstarted_btn:hover {
-    color: #981642;
+    color: #d6908c;
     background-color: var(--e-global-color-white);
     transform: translateY(-10px);
 }
@@ -406,14 +406,14 @@ p{
 }
 .services_content h5{
     text-transform: uppercase;
-    color: #981642;
+    color: #d6908c;
     letter-spacing: 3.1px;
     margin-bottom: 12px;
 }
 .services_content h2{
     margin-bottom: 20px;
     padding: 0 120px;
-    color: var(--e-global-color-primary);
+    color: #d6809c;
 }
 .services_content p {
     margin-bottom: 35px;
@@ -448,6 +448,7 @@ p{
     font-size: 18px;
     line-height: 24px;
     font-weight: 400;
+    color: #9f9f9f;
 }
 .services_box_content .services_box_lower_portion .btn_wrapper i{
     color: var(--e-global-color-accent);
@@ -466,7 +467,7 @@ p{
 }
 .services_box_content:hover .services_box_lower_portion .btn_wrapper i{
     color: var(--e-global-color-white);
-    background-color: #981642;
+    background-color: #d6908c;
 }
 .services_section .services_left_shape{
     position: absolute;
@@ -506,20 +507,20 @@ p{
 }
 .aboutus_content h5{
     text-transform: uppercase;
-    color: #981642;
+    color: #d6908c;
     letter-spacing: 3.1px;
     margin-bottom: 12px;
 }
 .aboutus_content h2{
     margin-bottom: 18px;
-    color: var(--e-global-color-primary);
+    color: #d6809c;
 }
 .aboutus_content p {
     margin-bottom: 15px;
     color: var(--e-global-color-text);
 }
 .aboutus_content h6{
-    color: #981642;
+    color: #d6908c;
     margin-left: 16px;
     margin-bottom: 35px;
 }
@@ -540,14 +541,14 @@ p{
     text-align: center;
     color: var(--e-global-color-accent);
     display: inline-block;
-    background-color: #d594aa;
+    background-color: #e7cbae;
     border-radius: 35px 0px 35px 0px;
     transition: all 0.3s ease-in-out;
     overflow: hidden;
 }
 .aboutus_content .btn_wrapper .get_started_btn:hover {
     color: var(--e-global-color-white);
-    background-color: #981642;
+    background-color: #d6908c;
     transform: translateY(-10px);
 }
 .aboutus_content .btn_wrapper .get_started_btn:hover:before {
@@ -565,7 +566,7 @@ p{
 	z-index: -1;
 	content: '';
 	color: var(--e-global-color-white);
-	background: #981642;
+	background: #d6908c;
 	transition: all 0.4s cubic-bezier(0.12, 0, 0.38, 1) 0s;
 }
 
@@ -580,13 +581,13 @@ p{
 }
 .our_specialties_heading_content h5{
     text-transform: uppercase;
-    color: #981642;
+    color: #d6908c;
     letter-spacing: 3.1px;
     margin-bottom: 12px;
 }
 .our_specialties_heading_content h2{
     margin-bottom: 18px;
-    color: var(--e-global-color-primary);
+    color: #d6809c;
 }
 .our_specialties_heading_content p {
     margin-bottom: 35px;
@@ -641,7 +642,7 @@ p{
     content: "\f058";
     height: 76px;
     width: 76px;
-    background-color: #981642;
+    background-color: #d6809c;
     position: absolute;
     border-radius: 100%;
     z-index: 1;
@@ -676,7 +677,7 @@ p{
     content: "\f058";
     height: 76px;
     width: 76px;
-    background-color: #981642;
+    background-color: #d6809c;
     position: absolute;
     border-radius: 100%;
     z-index: 1;
@@ -763,12 +764,12 @@ p{
 }
 .get_in_touch_content h5 {
     text-transform: uppercase;
-    color: #981642;
+    color: #000000;
     letter-spacing: 3.1px;
     margin-bottom: 12px;
 }
 .get_in_touch_content h2{
-    color: var(--e-global-color-primary);
+    color: #e7cbae;
     margin-bottom: 32px;
     padding-right: 25px;
 }
@@ -823,7 +824,7 @@ textarea {
     text-align: center;
     color: var(--e-global-color-white);
     display: inline-block;
-    background-color: #981642;
+    background-color: #e7cbae;
     border-radius: 35px 0px 35px 0px;
     transition: all 0.3s ease-in-out;
     outline: none;
@@ -832,7 +833,7 @@ textarea {
     position: relative;
 }
 .get_in_touch_content button:hover {
-    color: #981642;
+    color: #d6908c;
     background-color: var(--e-global-color-white);
     transform: translateY(-10px);
 }
@@ -850,7 +851,7 @@ textarea {
 	width: 0px;
 	z-index: -1;
 	content: '';
-    color: #981642;
+    color: #d6908c;
     background-color: var(--e-global-color-white);
 	transition: all 0.4s cubic-bezier(0.12, 0, 0.38, 1) 0s;
 }
@@ -876,13 +877,13 @@ textarea {
 }
 .pricing_plans_content h5{
     text-transform: uppercase;
-    color: #981642;
+    color: #d6908c;
     letter-spacing: 3.1px;
     margin-bottom: 12px;
 }
 .pricing_plans_content h2{
     margin-bottom: 18px;
-    color: var(--e-global-color-primary);
+    color: #d6809c;
 }
 .pricing_plans_content p {
     margin-bottom: 35px;
@@ -907,7 +908,7 @@ textarea {
     transition: all 0.3s ease-in-out;
 }
 .pricing_plans_box_image_content{
-    background-color: #981642;
+    background-color: #d6809c;
     width: 118px;
     height: 118px;
     text-align: center;
@@ -948,7 +949,7 @@ textarea {
     font-weight: 400;
 }
 .pricing_plans_box_lower_portion ul li i {
-    color: #981642;
+    color: #d6908c;
     font-size: 16px;
     line-height: 16px;
     margin-right: 10px;
@@ -962,7 +963,7 @@ textarea {
     font-size: 48px;
     line-height: 55px;
     font-weight: 700;
-    color: #981642;
+    color: #d6908c;
 }
 .pricing_plans_box_lower_portion .pricing_plans_span_wrapper .per_month{
     font-family: 'Playfair Display', serif;
@@ -990,7 +991,7 @@ textarea {
 }
 .pricing_plans_box_content:hover .pricing_plans_box_lower_portion .enroll_now_btn {
     color: var(--e-global-color-white);
-    background-color: #981642;
+    background-color: #d6908c;
     transform: translateY(-10px);
 }
 
@@ -1010,7 +1011,7 @@ textarea {
 .testimonial_content i{
     font-size: 140px;
     line-height: 88px;
-    color: #981642;
+    color: #d6908c;
     margin-bottom: 35px;
 }
 .testimonial_content .testimonial_paragraph{
@@ -1053,7 +1054,7 @@ textarea {
     top: -70px;
     font-size: 50px;
     line-height: 50px;
-    color: #981642;
+    color: #d6908c;
     opacity: 1;
 }
 #carouselExampleControls .carousel-control-prev i{
@@ -1067,7 +1068,7 @@ textarea {
     top: -70px;
     font-size: 50px;
     line-height: 50px;
-    color: #981642;
+    color: #d6908c;
     opacity: 1;
 }
 #carouselExampleControls .carousel-control-next i{
@@ -1088,13 +1089,13 @@ textarea {
 }
 .blog_posts_content h5{
     text-transform: uppercase;
-    color: #981642;
+    color: #d6908c;
     letter-spacing: 3.1px;
     margin-bottom: 12px;
 }
 .blog_posts_content h2{
     margin-bottom: 18px;
-    color: var(--e-global-color-primary);
+    color: #d6809c;
 }
 .blog_posts_content p {
     margin-bottom: 35px;
@@ -1116,7 +1117,7 @@ textarea {
     line-height: 18px;
     font-weight: 400;
     color: var(--e-global-color-white);
-    background-color: #981642;
+    background-color: #d6908c;
     padding: 5px 18px;
     border-radius: 15px 0 15px 0;
     margin-bottom: 15px;
@@ -1155,7 +1156,7 @@ textarea {
 }
 .blog_posts_section .btn_wrapper .view_blog:hover {
     color: var(--e-global-color-white);
-    background-color: #981642;
+    background-color: #d6908c;
     transform: translateY(-10px);
 }
 .blog_posts_section .btn_wrapper .view_blog:hover:before {
@@ -1173,7 +1174,7 @@ textarea {
 	z-index: -1;
 	content: '';
     color: var(--e-global-color-white);
-    background-color: #981642;
+    background-color: #d6908c;
 	transition: all 0.4s cubic-bezier(0.12, 0, 0.38, 1) 0s;
 }
 .blog_posts_section .blog_posts_left_shape{
@@ -1201,7 +1202,7 @@ textarea {
 }
 .subscribe_content h5 {
     text-transform: uppercase;
-    color: #981642;
+    color: #e7cbae;
     letter-spacing: 3.1px;
     margin-bottom: 12px;
 }
@@ -1233,7 +1234,7 @@ textarea {
     text-align: center;
     color: var(--e-global-color-white);
     display: inline-block;
-    background-color: #981642;
+    background-color: #e7cbae;
     border-radius: 35px 0px 35px 0px;
     transition: all 0.3s ease-in-out;
     outline: none;
@@ -1242,7 +1243,7 @@ textarea {
     position: relative;
 }
 .subscribe_content button:hover {
-    color: #981642;
+    color: #d6908c;
     background-color: var(--e-global-color-white);
     transform: translateY(-10px);
 }
@@ -1260,7 +1261,7 @@ textarea {
 	width: 0px;
 	z-index: -1;
 	content: '';
-    color: #981642;
+    color: #d6908c;
     background-color: var(--e-global-color-white);
 	transition: all 0.4s cubic-bezier(0.12, 0, 0.38, 1) 0s;
 }
@@ -1279,8 +1280,8 @@ textarea {
 
 .footer-section{
     position: relative;
-    background-color: #981642;
-    padding: 308px 0 0px;
+    background-color: #d6809c;
+    padding: 120px 0 0px;
     margin-top: -218px;
 }
 .middle-portion {
@@ -1328,7 +1329,7 @@ textarea {
     transition: all 0.3s ease-in-out;
 }
 .middle-portion ul .icons i:hover{
-    color: #981642;
+    color: #d6908c;
     background-color: var(--e-global-color-white);
     transform: translateY(-5px);
 }
@@ -1487,7 +1488,7 @@ textarea {
 }
 .aboutpage_aboutus_content h5{
     text-transform: uppercase;
-    color: #981642;
+    color: #d6908c;
     letter-spacing: 3.1px;
     margin-bottom: 12px;
 }
@@ -1520,13 +1521,13 @@ textarea {
     left: 22px;
     top: 24px;
     border-radius: 100%;
-    border: 2px solid #981642;
+    border: 2px solid #d6908c;
     height: 38px;
     width: 38px;
     text-align: center;
     font-size: 18px;
     line-height: 36px;
-    color: #981642;
+    color: #d6908c;
 }
 .aboutpage_aboutus_content .box span{
     font-size: 18px;
@@ -1558,7 +1559,7 @@ textarea {
     padding: 0 230px;
 }
 .discount_content span{
-    color: #981642;
+    color: #d6908c;
 }
 .discount_content p {
     margin-bottom: 35px;
@@ -1581,7 +1582,7 @@ textarea {
 }
 .discount_content .btn_wrapper .get_started:hover {
     color: var(--e-global-color-white);
-    background-color: #981642;
+    background-color: #d6908c;
     transform: translateY(-10px);
 }
 .discount_content .btn_wrapper .get_started:hover:before {
@@ -1599,7 +1600,7 @@ textarea {
 	z-index: -1;
 	content: '';
     color: var(--e-global-color-white);
-    background-color: #981642;
+    background-color: #d6908c;
 	transition: all 0.4s cubic-bezier(0.12, 0, 0.38, 1) 0s;
 }
 
@@ -1621,7 +1622,7 @@ textarea {
 }
 .mission_content h5{
     text-transform: uppercase;
-    color: #981642;
+    color: #d6908c;
     letter-spacing: 3.1px;
     margin-bottom: 12px;
 }
@@ -1642,7 +1643,7 @@ textarea {
     text-align: center;
     color: var(--e-global-color-white);
     display: inline-block;
-    background-color: #981642;
+    background-color: #d6908c;
     border-radius: 35px 0px 35px 0px;
     transition: all 0.3s ease-in-out;
     position: relative;
@@ -1695,7 +1696,7 @@ textarea {
 }
 .vision_content h5{
     text-transform: uppercase;
-    color: #981642;
+    color: #d6908c;
     letter-spacing: 3.1px;
     margin-bottom: 12px;
 }
@@ -1716,7 +1717,7 @@ textarea {
     text-align: center;
     color: var(--e-global-color-white);
     display: inline-block;
-    background-color: #981642;
+    background-color: #d6908c;
     border-radius: 35px 0px 35px 0px;
     transition: all 0.3s ease-in-out;
     position: relative;
@@ -1762,7 +1763,7 @@ textarea {
 }
 .achievement_content h5{
     text-transform: uppercase;
-    color: #981642;
+    color: #d6908c;
     letter-spacing: 3.1px;
     margin-bottom: 12px;
 }
@@ -1828,7 +1829,7 @@ textarea {
 }
 .our_team_content h5{
     text-transform: uppercase;
-    color: #981642;
+    color: #d6908c;
     letter-spacing: 3.1px;
     margin-bottom: 12px;
 }
@@ -1874,7 +1875,7 @@ textarea {
 }
 .our_team_box_content .our_team_box_lower_portion .social_icons i{
     color: var(--e-global-color-white);
-    background-color: #981642;
+    background-color: #d6908c;
     border-radius: 100%;
     font-size: 14px;
     line-height: 36px;
@@ -1908,7 +1909,7 @@ textarea {
 }
 .accordian_content h5{
     text-transform: uppercase;
-    color: #981642;
+    color: #d6908c;
     letter-spacing: 3.1px;
     margin-bottom: 12px;
 }
@@ -1995,8 +1996,8 @@ textarea {
 .accordian-section .accordion-card .collapsed:before {
     content: "\2b";
     background-color: transparent;
-    color: #981642;
-    border: 2px solid #981642;
+    color: #d6908c;
+    border: 2px solid #d6908c;
     border-radius: 100px;
     text-align: center;
 }
@@ -2014,7 +2015,7 @@ textarea {
 }
 .message_content h5 {
     text-transform: uppercase;
-    color: #981642;
+    color: #d6908c;
     letter-spacing: 3.1px;
     margin-bottom: 12px;
 }
@@ -2090,7 +2091,7 @@ textarea {
 }
 .message_content button:hover {
     color: var(--e-global-color-white);
-    background-color: #981642;
+    background-color: #d6908c;
     transform: translateY(-10px);
 }
 .message_content button:hover:before {
@@ -2108,7 +2109,7 @@ textarea {
 	z-index: -1;
 	content: '';
     color: var(--e-global-color-white);
-    background-color: #981642;
+    background-color: #d6908c;
 	transition: all 0.4s cubic-bezier(0.12, 0, 0.38, 1) 0s;
 }
 
@@ -2156,7 +2157,7 @@ textarea {
     width: 26%;
 }
 .message_section .box .box_image_content figure{
-    background-color: #981642;
+    background-color: #d6908c;
     width: 90px;
     height: 90px;
     line-height: 90px;
