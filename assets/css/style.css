@@ -211,7 +211,7 @@ p{
     position: relative;
 }
 .left_icons ul{
-    background-color: #e7cbae;
+    /*background-color: #e7cbae;*/
     border-radius: 0 30px 30px 0;
 }
 .left_icons ul li{
