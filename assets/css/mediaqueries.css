@@ -2937,6 +2937,7 @@
     }
     .third_lower_portion{
         padding: 30px 75px 20px;
+        height: 265px !important;
     }
 
     .testimonial_content i {

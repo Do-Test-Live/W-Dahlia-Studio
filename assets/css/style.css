@@ -927,17 +927,20 @@ textarea {
 }
 .pricing_plans_box_lower_portion {
     padding: 70px 60px 30px;
+    height: 500px;
 }
 .second_lower_portion{
     padding: 70px 69px 30px;
 }
 .third_lower_portion{
     padding: 70px 72px 30px;
+    height: 500px;
 }
 .pricing_plans_box_lower_portion h3{
     color: var(--e-global-color-primary);
     text-align: center;
     margin-bottom: 0px;
+    font-size: 24px;
 }
 .pricing_plans_box_lower_portion ul{
     margin-bottom: 16px;
@@ -1374,6 +1377,7 @@ textarea {
 .bottom-portion{
     border-top: 1px solid var(--e-global-color-mostly-desaturated-magenta);
     text-align: center;
+    margin-top: -40px;
 }
 .copyright {
     padding: 24px 0;
@@ -2193,4 +2197,10 @@ textarea {
 .logosize {
     height: 54px;
     width: 216px;
+}
+
+@media only screen and (max-width: 992px) {
+    .banner-text{
+        font-size: 18px;
+    }
 }
