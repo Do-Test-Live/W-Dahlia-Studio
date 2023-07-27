@@ -42,7 +42,7 @@ html{
 }
 h1{
     font-family: 'Playfair Display', serif;
-    font-size: 64px;
+    font-size: 45px;
     line-height: 82px;
     font-weight: 700;
     color: var(--e-global-color-white);
