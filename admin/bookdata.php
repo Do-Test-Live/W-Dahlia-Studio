@@ -5,13 +5,12 @@ $db_handle = new DBController();
 
 if(isset($_POST['submit'])){
     $date=$db_handle->checkValue($_POST['date']);
-    $time=$db_handle->checkValue($_POST['time']);
-    $insert_user = $db_handle->insertQuery("INSERT INTO `book`( `date`, `time`) VALUES ('$date','$time')");
+    $insert_user = $db_handle->insertQuery("INSERT INTO `date_slot`( `date`) VALUES ('$date')");
     if($insert_user){
         ?>
         <script>
             alert('Book Time Added');
-            window.location.href="bookdata.php";
+            window.location.href="timeslot.php?date=<?php echo $date; ?>";
         </script>
         <?php
     }
@@ -19,7 +18,7 @@ if(isset($_POST['submit'])){
 
 if(isset($_GET['book_id'])){
     $book_id=$db_handle->checkValue($_GET['book_id']);
-    $delete = $db_handle->insertQuery("DELETE FROM `book` WHERE id='$book_id'");
+    $delete = $db_handle->insertQuery("DELETE FROM `date_slot` WHERE id='$book_id'");
     if($delete){
         ?>
         <script>
@@ -93,109 +92,37 @@ if(isset($_GET['book_id'])){
                 </div>
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-2 text-gray-800">Registration Data</h1>
+                <h1 class="h3 mb-2 text-gray-800">Slot Data</h1>
 
                 <!-- DataTales Example -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Registration Data</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Slot Data</h6>
                     </div>
                     <div class="card-body">
-                        <div class="text-center mb-4">
-                            <a href="close.php" class="btn btn-primary">Close Date & Time</a>
-                        </div>
                         <div class="table-responsive">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                 <tr>
                                     <th>SL</th>
-                                    <th>Name</th>
-                                    <th>Gender</th>
-                                    <th>Phone Number</th>
-                                    <th>Email</th>
                                     <th>Date</th>
-                                    <th>Time</th>
-                                    <th>Symptoms</th>
-                                    <th>Physicians</th>
-                                </tr>
-                                </thead>
-                                <tfoot>
-                                <tr>
-                                    <th>SL</th>
-                                    <th>Name</th>
-                                    <th>Gender</th>
-                                    <th>Phone Number</th>
-                                    <th>Email</th>
-                                    <th>Date</th>
-                                    <th>Time</th>
-                                    <th>Symptoms</th>
-                                    <th>Physicians</th>
-                                </tr>
-                                </tfoot>
-                                <tbody>
-                                <?php
-                                $data = $db_handle->runQuery("SELECT * FROM book where name!='' order by id desc");
-                                $row_count = $db_handle->numRows("SELECT * FROM book where name!='' order by id desc");
-                                for ($i = 0; $i < $row_count; $i++) {
-                                    ?>
-                                    <tr>
-                                        <td><?php echo $i + 1; ?></td>
-                                        <td><?php echo $data[$i]["name"]; ?></td>
-                                        <td><?php echo $data[$i]["gender"]; ?></td>
-                                        <td><?php echo $data[$i]["phone_number"]; ?></td>
-                                        <td><?php echo $data[$i]["email"]; ?></td>
-                                        <td><?php echo $data[$i]["date"]; ?></td>
-                                        <td><?php echo $data[$i]["time"]; ?></td>
-                                        <td><?php echo $data[$i]["symptoms"]; ?></td>
-                                        <td><?php echo $data[$i]["physicians"]; ?></td>
-                                    </tr>
-                                <?php } ?>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Page Heading -->
-                <h1 class="h3 mb-2 text-gray-800">Book Time</h1>
-
-                <!-- DataTales Example -->
-                <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Book Time</h6>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-bordered" id="dataTableBook" width="100%" cellspacing="0">
-                                <thead>
-                                <tr>
-                                    <th>SL</th>
-                                    <th>Date</th>
-                                    <th>Time</th>
-                                    <th>Actions</th>
                                 </tr>
                                 </thead>
                                 <tfoot>
                                 <tr>
                                     <th>SL</th>
                                     <th>Date</th>
-                                    <th>Time</th>
-                                    <th>Actions</th>
                                 </tr>
                                 </tfoot>
                                 <tbody>
                                 <?php
-                                $data = $db_handle->runQuery("SELECT * FROM book where name='' order by id desc");
-                                $row_count = $db_handle->numRows("SELECT * FROM book where name='' order by id desc");
+                                $data = $db_handle->runQuery("SELECT * FROM date_slot order by id desc");
+                                $row_count = $db_handle->numRows("SELECT * FROM date_slot order by id desc");
                                 for ($i = 0; $i < $row_count; $i++) {
                                     ?>
                                     <tr>
                                         <td><?php echo $i + 1; ?></td>
                                         <td><?php echo $data[$i]["date"]; ?></td>
-                                        <td><?php echo $data[$i]["time"]; ?></td>
-                                        <td class="text-center"><a
-                                                    href="bookdata.php?book_id=<?php echo $data[$i]["id"]; ?>"
-                                                    class="btn btn-danger">Release</a></td>
                                     </tr>
                                 <?php } ?>
                                 </tbody>
