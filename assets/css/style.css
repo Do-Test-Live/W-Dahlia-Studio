@@ -927,14 +927,14 @@ textarea {
 }
 .pricing_plans_box_lower_portion {
     padding: 70px 60px 30px;
-    height: 500px;
+    height: 575px;
 }
 .second_lower_portion{
     padding: 70px 69px 30px;
 }
 .third_lower_portion{
     padding: 70px 72px 30px;
-    height: 500px;
+    height: 575px;
 }
 .pricing_plans_box_lower_portion h3{
     color: var(--e-global-color-primary);
