@@ -1,7 +1,6 @@
 <?php
 session_start();
-require_once("includes/dbConnect.php");
-$db_handle = new DBController();
+
 // Include configuration file
 require_once 'config.php';
 
@@ -90,7 +89,7 @@ if (!empty($_GET['session_id'])) {
                     if (!empty($prevRow)) {
                         $payment_id = $prevRow['id'];
                     } else {
-                        $user_id = $_SESSION['user_id'];
+                        $user_id = $_SESSION['userid'];
                         // Insert transaction data into the database
                         $sqlQ = "INSERT INTO transactions (customer_name,customer_email,billing_id,item_name,item_number,item_price,item_price_currency,paid_amount,paid_amount_currency,txn_id,payment_status,stripe_checkout_session_id,created,modified) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,NOW(),NOW())";
                         $stmt = $db->prepare($sqlQ);
@@ -122,7 +121,8 @@ if (!empty($_GET['session_id'])) {
 <?php if ($statusMsg=="Your Payment has been Successful!") {
     echo "
     <script>
-    window.location.href = 'index.html';
+    alert('Payment Successful');
+    window.location.href = 'index.php';
 </script>
     ";
 
