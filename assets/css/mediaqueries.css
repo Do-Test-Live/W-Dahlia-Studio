@@ -1135,8 +1135,8 @@
         display: block;
         text-align: left;
         border-radius: 0;
-    } 
-    
+    }
+
     .left_icons ul {
         display: none;
     }
@@ -1395,6 +1395,7 @@
     .pricing_plans_content p {
         margin-bottom: 25px;
         padding: 0;
+        font-size: 20px;
     }
     .pricing_plans_box_image_content {
         width: 80px;
@@ -2047,7 +2048,7 @@
     .services_section .services_left_shape img {
         width: 100px;
     }
-    
+
     .aboutus_section {
         padding: 45px 0 60px;
     }
@@ -2095,7 +2096,7 @@
         line-height: 16px;
         padding: 18px 28px;
     }
-    
+
     .our_specialties_section {
         padding: 55px 0 30px;
     }
@@ -2733,7 +2734,7 @@
     }
 }
 
- @media screen and (max-width: 575px){
+@media screen and (max-width: 575px){
     .main_header {
         padding: 20px 15px 0;
     }
@@ -2754,7 +2755,7 @@
     }
     h1 {
         font-size: 28px;
-        line-height: 44px;
+        line-height: 30px;
     }
     .banner-section-outer .banner-section p {
         margin-bottom: 15px;
@@ -2909,6 +2910,7 @@
     }
     .pricing_plans_box_lower_portion {
         padding: 30px 75px 20px;
+        height: 420px;
     }
     h3 {
         font-size: 14px;
@@ -3236,7 +3238,7 @@
     .message_section .box .box_image_content figure img {
         width: 22px;
     }
-    
+
     .contact_map_section iframe {
         height: 805px;
     }

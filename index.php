@@ -67,16 +67,13 @@ if(isset($_SESSION['userid'])){
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="index.html">首頁</a>
+                                <a class="nav-link" href="index.php">首頁</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="index.html#AboutUs">關於我們</a>
+                                <a class="nav-link" href="index.php#AboutUs">關於我們</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="index.html#Services">服務</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="https://wa.me/+85298839552" target="_blank">登記</a>
+                                <a class="nav-link" href="index.php#Services">服務</a>
                             </li>
                             <?php
                             if(isset($_SESSION['userid'])){
@@ -94,7 +91,7 @@ if(isset($_SESSION['userid'])){
                             }
                             ?>
                             <li class="nav-item">
-                                <a class="nav-link contact_us" href="index.html#footer_section">聯絡我們</a>
+                                <a class="nav-link contact_us" href="index.php#footer_section">聯絡我們</a>
                             </li>
                         </ul>
                     </div>
@@ -108,13 +105,13 @@ if(isset($_SESSION['userid'])){
             <ul class="list-unstyled p-0 m-0">
                 <li>
                     <a href="https://www.instagram.com/dahliastudio.hk/" target="_blank"><img
-                            src="assets/images/insta.png"
-                            style="width: 40px"/> </i></a>
+                                src="assets/images/insta.png"
+                                style="width: 40px"/> </i></a>
                 </li>
                 <li>
                     <a href="https://www.facebook.com/dahliastudio.hk" target="_blank"><img
-                            src="assets/images/facebook.png"
-                            style="width: 40px"/></a>
+                                src="assets/images/facebook.png"
+                                style="width: 40px"/></a>
                 </li>
                 <li>
                     <a href="https://wa.me/85298839552" target="_blank"><img src="assets/images/whatsapp.png"
@@ -129,10 +126,11 @@ if(isset($_SESSION['userid'])){
             <div class="row" data-aos="fade-up">
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-md-left text-center">
                     <div class="banner-section-content">
-                        <h1 data-aos="fade-up" class="banner-text">Dahlia - Your Modern Wellness Coach </br> 瑜伽工作室
-                            | 致力於身心靈健康培訓 <span class="ityped"></span></h1>
+                        <h1 data-aos="fade-up" class="banner-text">Dahlia - Your Modern Wellness Coach </br> 瑜伽工作室 | 致力於身心靈健康培訓 <span class="ityped"></span></h1>
+                        <h4>Dahlia 提供市場上的瑜珈運動, 也會有身心靈瑜珈。</br>
+                            普通的空中、wheel hatha, stretch等, 身心靈的singing bowl , sound therapy 等。 </h4>
                         <div class="btn_wrapper" data-aos="fade-up">
-                            <a class="text-decoration-none getstarted_btn" href="index.html">登記</a>
+                            <a class="text-decoration-none getstarted_btn" href="login.php">登記</a>
                         </div>
                         <!--<a class="top-btn" href="index.html#footer_section">
                             <i class="fa-solid fa-arrow-down-long"></i>
@@ -230,8 +228,7 @@ if(isset($_SESSION['userid'])){
                 <div class="pricing_plans_content">
                     <h5>Our Services</h5>
                     <h2>瑜珈班</h2>
-                    <p>Dahlia 提供市場上的瑜珈運動, 也會有身心靈瑜珈。</br>
-                        普通的空中、wheel hatha, stretch等, 身心靈的singing bowl , sound therapy 等。
+                    <p>只需簡單點選課程，就能報名及付款。
                     </p>
                 </div>
             </div>
@@ -239,7 +236,7 @@ if(isset($_SESSION['userid'])){
         <div class="row" data-aos="fade-up">
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                 <div class="pricing_plans_box_content" <?php if (isset($_SESSION['userid'])) {
-                    ?>data-toggle="modal" data-target="#exampleModal"<?php
+                ?>data-toggle="modal" data-target="#exampleModal"<?php
                 } else
                 {?> onclick="showalert();" <?php
                 }
@@ -858,12 +855,12 @@ if(isset($_SESSION['userid'])){
                                     瑜伽工作室，致力於身心靈健康培訓，</br>幫助人們達到身心靈的健康和平衡。🌿</p>
                             </li>
                             <li class="icons"><a href="https://www.instagram.com/dahliastudio.hk/"><img
-                                    src="assets/images/insta.png" style="width: 40px"/></a></li>
+                                            src="assets/images/insta.png" style="width: 40px"/></a></li>
                             <li class="icons"><a href="https://www.facebook.com/dahliastudio.hk"><img
-                                    src="assets/images/facebook.png" style="width: 40px"/></a></li>
+                                            src="assets/images/facebook.png" style="width: 40px"/></a></li>
                             <li class="icons"><a href="https://wa.me/85298839552" target="_blank"><img
-                                    src="assets/images/whatsapp.png"
-                                    style="width: 40px"/></a></li>
+                                            src="assets/images/whatsapp.png"
+                                            style="width: 40px"/></a></li>
                         </ul>
                     </div>
                 </div>
