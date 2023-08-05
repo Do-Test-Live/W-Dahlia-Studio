@@ -284,6 +284,9 @@ if(isset($_SESSION['userid'])){
                             </div>
                             <div class="col-4">$2,688</div>
                         </div>
+                        <div class="row text-center mt-3 align-items-center justify-content-center">
+                            <button class="btn btn-secondary">購買</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -337,6 +340,9 @@ if(isset($_SESSION['userid'])){
                             </div>
                             <div class="col-4">$2,998</div>
                         </div>
+                        <div class="row text-center mt-3 align-items-center justify-content-center">
+                            <button class="btn btn-secondary">購買</button>
+                        </div>
 
                         <!--<div class="btn_wrapper mt-3">
                             <a class="enroll_now_btn text-decoration-none" href="#">Enroll Now</a>
@@ -370,6 +376,9 @@ if(isset($_SESSION['userid'])){
                         </div>
                         <div class="pricing_plans_span_wrapper">
                             <span class="per_month">Unlimited to any class.</span>
+                        </div>
+                        <div class="row text-center mt-3 align-items-center justify-content-center">
+                            <button class="btn btn-secondary">購買</button>
                         </div>
 
                         <!--<div class="btn_wrapper">
@@ -407,6 +416,9 @@ if(isset($_SESSION['userid'])){
                         <!--<div class="btn_wrapper">
                             <a class="enroll_now_btn text-decoration-none" href="#">Enroll Now</a>
                         </div>-->
+                        <div class="row text-center mt-3 align-items-center justify-content-center">
+                            <button class="btn btn-secondary">購買</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -440,6 +452,9 @@ if(isset($_SESSION['userid'])){
                                                   style="color: #d6908c;"></i> 二人同行(每人)$1450 /5堂
                             </div>
                             <div class="col-4">$2,900</div>
+                        </div>
+                        <div class="row text-center mt-3 align-items-center justify-content-center">
+                            <button class="btn btn-secondary">購買</button>
                         </div>
 
                         <!--<div class="btn_wrapper">

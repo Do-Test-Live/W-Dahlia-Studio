@@ -1,6 +1,16 @@
 <?php
 session_start();
+require_once ('includes/dbConnect.php');
+$db_handle = new DBController();
 
+require 'PHPMailer.php';
+require 'SMTP.php';
+
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+
+$mail = new PHPMailer();
 // Include configuration file
 require_once 'config.php';
 
@@ -119,11 +129,87 @@ if (!empty($_GET['session_id'])) {
 ?>
 
 <?php if ($statusMsg=="Your Payment has been Successful!") {
-    echo "
-    <script>
-    alert('Payment Successful');
-    window.location.href = 'index.php';
-</script>
-    ";
+    $fetch_customer_data = $db_handle->runQuery("select * from customer where id = '$user_id'");
+    $name = $fetch_customer_data[0]['customer_name'];
+    $email = $fetch_customer_data[0]['email'];
+    $number = $fetch_customer_data[0]['number'];
+    $package ='';
+    if($paidAmount == 180)
+        $package = 'Mat/Singing Bowl - Single Class';
+    elseif ($paidAmount == 600)
+        $package = 'Mat/Singing Bowl - 4 Classes (1 Month Limit)';
+    elseif ($paidAmount == 1488)
+        $package = 'Mat/Singing Bowl - 10 Classes (3 Months Limit)';
+    elseif ($paidAmount == 1688)
+        $package = 'Mat/Singing Bowl - 10 Classes (4 Months Limit)';
+    elseif ($paidAmount == 2688)
+        $package = 'Mat/Singing Bowl - 20 Classes (6 Months Limit)';
+    elseif ($paidAmount == 200)
+        $package = 'Aerial/Spinning - Single Class';
+    elseif ($paidAmount == 666)
+        $package = 'Aerial/Spinning - 4 Classes (1 Month Limit)';
+    elseif ($paidAmount == 1588)
+        $package = 'Aerial/Spinning - 10 Classes (3 Months Limit)';
+    elseif ($paidAmount == 1888)
+        $package = 'Aerial/Spinning - 10 Classes (4 Months Limit)';
+    elseif ($paidAmount == 2998)
+        $package = 'Aerial/Spinning - 20 Classes (6 Months Limit)';
+    elseif ($paidAmount == 1988)
+        $package = 'All you can join package';
+    elseif ($paidAmount == 108)
+        $package = '8月體驗價 $108 / 1堂';
+    elseif ($paidAmount == 1600)
+        $package = '雙人瑜珈(一人) /5堂';
+    elseif ($paidAmount == 2900)
+        $package = '二人同行(每人)$1450 /5堂';
 
+    $email_to_1 = $customer_email; // First recipient's email address
+    $email_to_2 = 'dahliastudiohk@gmail.com'; // Second recipient's email address
+
+    $mail->isSMTP();
+    $mail->Host = 'mail.dahliastudiohk.com';
+    $mail->SMTPAuth = true;
+    $mail->Username = 'business@dahliastudiohk.com';
+    $mail->Password = 'Av1@@#)in12e';
+    $mail->Port = 465;
+    $mail->SMTPSecure = 'ssl';
+
+    $mail->setFrom('business@dahliastudiohk.com', 'Dahlia Studio');
+    $mail->addAddress($email_to_1);  // Add first recipient's email
+    $mail->addAddress($email_to_2);  // Add second recipient's email
+    $mail->Subject = 'Order Confirmation from Dahlia Studio';
+    $mail->isHTML(true);
+    $mail->Body = "
+        <html>
+            <body style='background-color: #eee; font-size: 16px;'>
+            <div style='max-width: 600px; min-width: 200px; background-color: #ffffff; padding: 20px; margin: auto;'>
+            
+                <p style='text-align: center;color:green;font-weight:bold'>Thank you for your purchase!</p>
+            
+                <p style='color:black;text-align: center'>
+                    Customer Name: <strong>$name</strong>
+                </p>
+                <p style='color:black;text-align: center'>
+                    Customer Email: <strong>$email</strong>
+                </p>
+                <p style='color:black;text-align: center'>
+                    Customer Contact Number: <strong>$number</strong>
+                </p>
+                <p style='color:black;text-align: center'>
+                    Your Package: <strong>$package</strong>
+                </p>
+            </div>
+            </body>
+        </html>";
+
+    if ($mail->send()) {
+        echo "<script>
+alert('Payment Successful! A mail with details has been sent to your email.');
+window.location.href = 'index.php';
+</script>";
+        exit;
+    } else {
+        echo "Something went wrong: " . $mail->ErrorInfo;
+    }
 }
+?>
