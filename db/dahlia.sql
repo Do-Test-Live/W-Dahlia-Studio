@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 06, 2023 at 07:10 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.0.25
+-- Generation Time: Aug 06, 2023 at 02:12 PM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -36,7 +36,7 @@ CREATE TABLE `admin_login` (
   `password` varchar(20) NOT NULL,
   `role` varchar(15) NOT NULL DEFAULT 'sales',
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `admin_login`
@@ -58,7 +58,37 @@ CREATE TABLE `book` (
   `address` varchar(250) NOT NULL,
   `phone` varchar(20) NOT NULL,
   `inserted_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `booked_schedule`
+--
+
+CREATE TABLE `booked_schedule` (
+  `id` int(11) NOT NULL,
+  `customer_id` int(11) NOT NULL,
+  `booked_date` date NOT NULL,
+  `booked_time` time NOT NULL,
+  `inserted_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `class_schedule_limit`
+--
+
+CREATE TABLE `class_schedule_limit` (
+  `id` int(11) NOT NULL,
+  `customer_id` int(11) NOT NULL,
+  `class_number` int(11) NOT NULL,
+  `purchase_date` datetime NOT NULL,
+  `end_date` datetime NOT NULL,
+  `inserted_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -79,7 +109,7 @@ CREATE TABLE `customer` (
   `membership_point` int(10) NOT NULL,
   `inserted_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `customer`
@@ -98,19 +128,15 @@ CREATE TABLE `date_slot` (
   `id` int(11) NOT NULL,
   `date` date NOT NULL,
   `inserted_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `date_slot`
 --
 
 INSERT INTO `date_slot` (`id`, `date`, `inserted_at`) VALUES
-(1, '2023-07-27', '0000-00-00 00:00:00'),
-(2, '2023-07-27', '0000-00-00 00:00:00'),
-(3, '2023-07-28', '0000-00-00 00:00:00'),
-(4, '2023-07-29', '0000-00-00 00:00:00'),
-(5, '2023-07-29', '0000-00-00 00:00:00'),
-(6, '2023-07-29', '0000-00-00 00:00:00');
+(10, '2023-08-22', '0000-00-00 00:00:00'),
+(11, '2023-08-14', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -123,34 +149,30 @@ CREATE TABLE `timeslot` (
   `date` date NOT NULL,
   `time_start` time NOT NULL,
   `time_end` time NOT NULL,
-  `description` varchar(200) NOT NULL,
-  `package` varchar(200) NOT NULL,
-  `level` varchar(200) NOT NULL,
-  `color` varchar(20) NOT NULL,
   `inserted_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `timeslot`
 --
 
-INSERT INTO `timeslot` (`id`, `date`, `time_start`, `time_end`, `description`, `package`, `level`, `color`, `inserted_at`) VALUES
-(1, '0000-00-00', '14:05:00', '17:02:00', 'jkljk', 'jklj', 'ukujk', '#ff1f1f', '2023-07-27 10:03:21'),
-(2, '0000-00-00', '14:07:00', '18:02:00', 'mkl;', 'afef', 'afds', '#5dde17', '2023-07-27 10:03:21'),
-(3, '0000-00-00', '00:00:00', '00:00:00', '', '', '', '#000000', '2023-07-27 10:03:21'),
-(4, '0000-00-00', '00:00:00', '00:00:00', '', '', '', '#000000', '2023-07-27 10:03:21'),
-(5, '0000-00-00', '00:00:00', '00:00:00', '', '', '', '#000000', '2023-07-27 10:03:21'),
-(6, '0000-00-00', '00:00:00', '00:00:00', '', '', '', '#000000', '2023-07-27 10:03:21'),
-(7, '0000-00-00', '00:00:00', '00:00:00', '', '', '', '#000000', '2023-07-27 10:03:21'),
-(8, '0000-00-00', '00:00:00', '00:00:00', '', '', '', '#000000', '2023-07-27 10:03:21'),
-(9, '2023-07-29', '00:00:00', '00:00:00', '', '', '', '#000000', '2023-07-27 10:05:26'),
-(10, '2023-07-29', '00:00:00', '00:00:00', '', '', '', '#000000', '2023-07-27 10:05:26'),
-(11, '2023-07-29', '00:00:00', '00:00:00', '', '', '', '#000000', '2023-07-27 10:05:26'),
-(12, '2023-07-29', '00:00:00', '00:00:00', '', '', '', '#000000', '2023-07-27 10:05:26'),
-(13, '2023-07-29', '00:00:00', '00:00:00', '', '', '', '#000000', '2023-07-27 10:05:26'),
-(14, '2023-07-29', '00:00:00', '00:00:00', '', '', '', '#000000', '2023-07-27 10:05:26'),
-(15, '2023-07-29', '18:08:00', '17:07:00', 'rghdrthg', 'rggr', 'gxzrgr', '#b71f1f', '2023-07-27 10:05:26'),
-(16, '2023-07-29', '00:00:00', '00:00:00', '', '', '', '#000000', '2023-07-27 10:05:26');
+INSERT INTO `timeslot` (`id`, `date`, `time_start`, `time_end`, `inserted_at`) VALUES
+(20, '2023-08-22', '19:48:00', '20:48:00', '2023-08-06 11:44:57'),
+(21, '2023-08-22', '00:00:00', '00:00:00', '2023-08-06 11:44:57'),
+(22, '2023-08-22', '00:00:00', '00:00:00', '2023-08-06 11:44:57'),
+(23, '2023-08-22', '00:00:00', '00:00:00', '2023-08-06 11:44:57'),
+(24, '2023-08-22', '04:04:00', '05:04:00', '2023-08-06 11:44:57'),
+(25, '2023-08-22', '00:00:00', '00:00:00', '2023-08-06 11:44:57'),
+(26, '2023-08-22', '00:00:00', '00:00:00', '2023-08-06 11:44:57'),
+(27, '2023-08-22', '00:00:00', '00:00:00', '2023-08-06 11:44:57'),
+(28, '2023-08-14', '00:00:00', '00:00:00', '2023-08-06 11:50:06'),
+(29, '2023-08-14', '00:00:00', '00:00:00', '2023-08-06 11:50:06'),
+(30, '2023-08-14', '00:00:00', '00:00:00', '2023-08-06 11:50:06'),
+(31, '2023-08-14', '17:50:00', '18:50:00', '2023-08-06 11:50:06'),
+(32, '2023-08-14', '00:00:00', '00:00:00', '2023-08-06 11:50:06'),
+(33, '2023-08-14', '00:00:00', '00:00:00', '2023-08-06 11:50:06'),
+(34, '2023-08-14', '00:00:00', '00:00:00', '2023-08-06 11:50:06'),
+(35, '2023-08-14', '00:00:00', '00:00:00', '2023-08-06 11:50:06');
 
 -- --------------------------------------------------------
 
@@ -161,17 +183,17 @@ INSERT INTO `timeslot` (`id`, `date`, `time_start`, `time_end`, `description`, `
 CREATE TABLE `transactions` (
   `id` int(11) NOT NULL,
   `billing_id` int(11) NOT NULL,
-  `customer_name` varchar(50) NOT NULL,
-  `customer_email` varchar(50) NOT NULL,
-  `item_name` varchar(255) NOT NULL,
-  `item_number` varchar(50) NOT NULL,
+  `customer_name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `customer_email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `item_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `item_number` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `item_price` float(10,2) NOT NULL,
-  `item_price_currency` varchar(10) NOT NULL,
+  `item_price_currency` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `paid_amount` float(10,2) NOT NULL,
-  `paid_amount_currency` varchar(10) NOT NULL,
-  `txn_id` varchar(50) NOT NULL,
-  `payment_status` varchar(25) NOT NULL,
-  `stripe_checkout_session_id` varchar(100) DEFAULT NULL,
+  `paid_amount_currency` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `txn_id` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `payment_status` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  `stripe_checkout_session_id` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -192,6 +214,18 @@ INSERT INTO `transactions` (`id`, `billing_id`, `customer_name`, `customer_email
 -- Indexes for table `admin_login`
 --
 ALTER TABLE `admin_login`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `booked_schedule`
+--
+ALTER TABLE `booked_schedule`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `class_schedule_limit`
+--
+ALTER TABLE `class_schedule_limit`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -229,6 +263,18 @@ ALTER TABLE `admin_login`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- AUTO_INCREMENT for table `booked_schedule`
+--
+ALTER TABLE `booked_schedule`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `class_schedule_limit`
+--
+ALTER TABLE `class_schedule_limit`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
@@ -238,13 +284,13 @@ ALTER TABLE `customer`
 -- AUTO_INCREMENT for table `date_slot`
 --
 ALTER TABLE `date_slot`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `timeslot`
 --
 ALTER TABLE `timeslot`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `transactions`
