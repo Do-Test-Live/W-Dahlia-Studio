@@ -1,9 +1,27 @@
 <?php
 session_start();
-require_once ('includes/dbConnect.php');
+require_once('includes/dbConnect.php');
 $db_handle = new DBController();
-if(isset($_SESSION['userid'])){
+if (isset($_SESSION['userid'])) {
     $userid = $_SESSION['userid'];
+}
+date_default_timezone_set("Asia/Hong_Kong");
+
+if(isset($_POST['book'])){
+    $date=$_POST['date'];
+    $time=$_POST['time'];
+    $userid = $_SESSION['userid'];
+    $current_time = date("Y-m-d H:i:s");
+
+    $insert_user = $db_handle->insertQuery("INSERT INTO `booked_schedule`(`customer_id`, `booked_date`, `booked_time`, `inserted_at`) VALUES ('$userid','$date','$time','$current_time')");
+    if ($insert_user) {
+        ?>
+        <script>
+            alert('Book Time Added');
+            window.location.href = "book.php.php";
+        </script>
+        <?php
+    }
 }
 ?>
 
@@ -12,7 +30,7 @@ if(isset($_SESSION['userid'])){
 
 
 <head>
-    <title>Slot Book | Dahlia Studio</title>
+    <title>Book Slot | Dahlia Studio</title>
     <!-- /SEO Ultimate -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
     <meta charset="utf-8">
@@ -75,14 +93,20 @@ if(isset($_SESSION['userid'])){
                             <li class="nav-item">
                                 <a class="nav-link" href="index.php#Services">服務</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.php#pricing">課堂收費及套票</a>
+                            </li>
                             <?php
-                            if(isset($_SESSION['userid'])){
+                            if (isset($_SESSION['userid'])) {
                                 ?>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="book.php">會員中心</a>
+                                </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="logout.php">登出</a>
                                 </li>
                                 <?php
-                            } else{
+                            } else {
                                 ?>
                                 <li class="nav-item">
                                     <a class="nav-link" href="login.php">登入/註冊</a>
@@ -101,32 +125,81 @@ if(isset($_SESSION['userid'])){
     </header>
 </div>
 
-<div class="container">
-    <form id="myForm">
-        <table class="table table-bordered">
-            <thead>
-            <tr>
-                <th>Select</th>
-                <th>Column 1</th>
-                <th>Column 2</th>
-                <!-- Add more columns as needed -->
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td><input type="checkbox" class="form-check-input" name="row[]" value="1"></td>
-                <td>Row 1, Column 1</td>
-                <td>Row 1, Column 2</td>
-                <!-- Add more cells as needed -->
-            </tr>
-            <!-- Add more rows as needed -->
-            </tbody>
-        </table>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-</div>
 
+<section class="pricing_plans_section" id="pricing">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="pricing_plans_content">
+                    <h5>Book Time</h5>
+                    <p>
+                        <?php
+                        $class = 0;
+                        $query = "SELECT * FROM `class_schedule_limit` where customer_id='$userid'";
+                        $data = $db_handle->runQuery($query);
+                        $row = $db_handle->numRows($query);
+                        if ($row > 0) {
+                            $class = $data[0]['class_number'];
+                        }
+                        ?>
+                        You have <?php echo $class; ?> book left in you account.
+                    </p>
+                </div>
+                <?php
+                if ($class > 0) {
+                    ?>
+                    <form action="" method="post">
+                        <div class="row">
+                            <div class="col-lg-6 mb-3">
+                                <label>Date <span class="text-danger">*</span></label>
+                                <input class="form-control mt-1" id="date" name="date" onchange="detectTime(this.value)"
+                                       type="date" required/>
+                            </div>
+                            <div class="col-lg-6 mb-3">
+                                <label>Start Time <span class="text-danger">*</span></label>
+                                <select class="form-control mt-1" id="time" name="time" required>
+                                    <option>Select Date First</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="text-center">
+                                    <button class="btn btn-primary" name="book" type="submit">Book</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <?php
+                }
+                ?>
 
+                <table class="table" width="100%">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Book Date</th>
+                        <th scope="col">Book Time</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                    $fetch_customer_data = $db_handle->runQuery("select * from booked_schedule where custome_id = '$userid'");
+                    $row = $db_handle->numRows("select * from booked_schedule where custome_id = '$userid'");
+                    for($i=0;$i<$row;$i++){
+                        ?>
+                        <tr>
+                            <th scope="row"><?php echo $i+1; ?></th>
+                            <td><?php echo $fetch_customer_data[$i]['booked_date']; ?></td>
+                            <td><?php echo $fetch_customer_data[$i]['booked_date']; ?></td>
+                        </tr>
+                    <?php
+                    }
+                    ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
 
 <!-- FOOTER SECTION -->
 <section class="footer-section" id="footer_section" style="margin-top: 0 !important;">
@@ -142,12 +215,12 @@ if(isset($_SESSION['userid'])){
                                     瑜伽工作室，致力於身心靈健康培訓，</br>幫助人們達到身心靈的健康和平衡。🌿</p>
                             </li>
                             <li class="icons"><a href="https://www.instagram.com/dahliastudio.hk/"><img
-                                        src="assets/images/insta.png" style="width: 40px"/></a></li>
+                                            src="assets/images/insta.png" style="width: 40px"/></a></li>
                             <li class="icons"><a href="https://www.facebook.com/dahliastudio.hk"><img
-                                        src="assets/images/facebook.png" style="width: 40px"/></a></li>
+                                            src="assets/images/facebook.png" style="width: 40px"/></a></li>
                             <li class="icons"><a href="https://wa.me/85298839552" target="_blank"><img
-                                        src="assets/images/whatsapp.png"
-                                        style="width: 40px"/></a></li>
+                                            src="assets/images/whatsapp.png"
+                                            style="width: 40px"/></a></li>
                         </ul>
                     </div>
                 </div>
@@ -210,7 +283,7 @@ if(isset($_SESSION['userid'])){
 <!-- Latest compiled JavaScript -->
 
 <script>
-    function showalert(){
+    function showalert() {
         alert('請先登入或註冊以預約時段');
         window.location.href = 'login.php';
     }
@@ -225,6 +298,35 @@ if(isset($_SESSION['userid'])){
 <script src="assets/unpkg.com/ityped@0.0.10"></script>
 <script src="assets/js/type.js"></script>
 <script src="assets/js/custom.js"></script>
+<script>
+    function detectTime(val) {
+        let time = document.getElementById('time');
+        removeOptions(time);
+
+        $.ajax({
+            url: "checkavailabletime.php",
+            type: "POST",
+            data: {
+                date: val
+            },
+            cache: false,
+            success: function (result) {
+                $("#time").html(result);
+            }
+        });
+    }
+
+    function removeOptions(selectElement) {
+        let i, L = selectElement.options.length - 1;
+        for (i = L; i >= 0; i--) {
+            selectElement.remove(i);
+        }
+    }
+
+    document.getElementById("date").min = String(new Date().getFullYear()) + "-" + ('0' + String(parseInt(new Date().getMonth() + 1))).slice(-2) + "-" + ('0' + String(new Date().getDate())).slice(-2);
+
+    let today = new Date().toISOString().slice(0, 16);
+</script>
 </body>
 
 </html>

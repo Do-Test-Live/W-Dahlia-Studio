@@ -53,7 +53,7 @@ if(isset($_SESSION['userid'])){
         <div class="main_header">
             <div class="container-fluid">
                 <nav class="navbar navbar-expand-lg navbar-light p-0">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="index.php">
                         <figure class="mb-0"><img src="assets/images/yogastic_logo.png" class="logosize" alt="">
                         </figure>
                     </a>
@@ -81,6 +81,9 @@ if(isset($_SESSION['userid'])){
                             <?php
                             if(isset($_SESSION['userid'])){
                                 ?>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="book.php">會員中心</a>
+                                </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="logout.php">登出</a>
                                 </li>
@@ -135,7 +138,7 @@ if(isset($_SESSION['userid'])){
                         <div class="btn_wrapper" data-aos="fade-up">
                             <a class="text-decoration-none getstarted_btn" href="login.php">登記</a>
                         </div>
-                        <!--<a class="top-btn" href="index.html#footer_section">
+                        <!--<a class="top-btn" href="index.php#footer_section">
                             <i class="fa-solid fa-arrow-down-long"></i>
                         </a>-->
                     </div>
@@ -887,19 +890,19 @@ if(isset($_SESSION['userid'])){
                         <h4>快速鏈接</h4>
                         <ul class="list-unstyled">
                             <li>
-                                <a href="index.html">首頁</a>
+                                <a href="index.php">首頁</a>
                             </li>
                             <li>
-                                <a href="index.html#AboutUs">關於我們</a>
+                                <a href="index.php#AboutUs">關於我們</a>
                             </li>
                             <li>
-                                <a href="index.html#Services">服務</a>
+                                <a href="index.php#Services">服務</a>
                             </li>
                             <li>
                                 <a class="nav-link" href="https://wa.me/+85298839552" target="_blank">登記</a>
                             </li>
                             <!--<li>
-                                <a  href="index.html#Pricing">Pricing</a>
+                                <a  href="index.php#Pricing">Pricing</a>
                             </li>
                             <li>
                                 <a href="#">Contact Us</a>

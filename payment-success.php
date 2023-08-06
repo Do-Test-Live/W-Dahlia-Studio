@@ -134,34 +134,106 @@ if (!empty($_GET['session_id'])) {
     $email = $fetch_customer_data[0]['email'];
     $number = $fetch_customer_data[0]['number'];
     $package ='';
-    if($paidAmount == 180)
+    date_default_timezone_set("Asia/Hong_Kong");
+    $current_time = date("Y-m-d H:i:s");
+    if($paidAmount == 180){
+        $end_time= date('Y-m-d H:i:s', strtotime($current_time. ' + 12 months'));
+        $class=1;
+        $insert = $db_handle->insertQuery("INSERT INTO `class_schedule_limit`(`customer_id`, `class_number`, `purchase_date`, `end_date`, `inserted_at`) VALUES ('$user_id','$class','$current_time','$end_time','$current_time')");
+
         $package = 'Mat/Singing Bowl - Single Class';
-    elseif ($paidAmount == 600)
+    }
+    elseif ($paidAmount == 600){
+        $end_time= date('Y-m-d H:i:s', strtotime($current_time. ' + 1 months'));
+        $class=4;
+        $insert = $db_handle->insertQuery("INSERT INTO `class_schedule_limit`(`customer_id`, `class_number`, `purchase_date`, `end_date`, `inserted_at`) VALUES ('$user_id','$class','$current_time','$end_time','$current_time')");
+
         $package = 'Mat/Singing Bowl - 4 Classes (1 Month Limit)';
-    elseif ($paidAmount == 1488)
+    }
+    elseif ($paidAmount == 1488){
+        $end_time= date('Y-m-d H:i:s', strtotime($current_time. ' + 3 months'));
+        $class=10;
+        $insert = $db_handle->insertQuery("INSERT INTO `class_schedule_limit`(`customer_id`, `class_number`, `purchase_date`, `end_date`, `inserted_at`) VALUES ('$user_id','$class','$current_time','$end_time','$current_time')");
+
         $package = 'Mat/Singing Bowl - 10 Classes (3 Months Limit)';
-    elseif ($paidAmount == 1688)
+    }
+    elseif ($paidAmount == 1688){
+        $end_time= date('Y-m-d H:i:s', strtotime($current_time. ' + 4 months'));
+        $class=10;
+        $insert = $db_handle->insertQuery("INSERT INTO `class_schedule_limit`(`customer_id`, `class_number`, `purchase_date`, `end_date`, `inserted_at`) VALUES ('$user_id','$class','$current_time','$end_time','$current_time')");
+
         $package = 'Mat/Singing Bowl - 10 Classes (4 Months Limit)';
-    elseif ($paidAmount == 2688)
+    }
+    elseif ($paidAmount == 2688){
+        $end_time= date('Y-m-d H:i:s', strtotime($current_time. ' + 6 months'));
+        $class=20;
+        $insert = $db_handle->insertQuery("INSERT INTO `class_schedule_limit`(`customer_id`, `class_number`, `purchase_date`, `end_date`, `inserted_at`) VALUES ('$user_id','$class','$current_time','$end_time','$current_time')");
+
         $package = 'Mat/Singing Bowl - 20 Classes (6 Months Limit)';
-    elseif ($paidAmount == 200)
+    }
+    elseif ($paidAmount == 200){
+        $end_time= date('Y-m-d H:i:s', strtotime($current_time. ' + 12 months'));
+        $class=1;
+        $insert = $db_handle->insertQuery("INSERT INTO `class_schedule_limit`(`customer_id`, `class_number`, `purchase_date`, `end_date`, `inserted_at`) VALUES ('$user_id','$class','$current_time','$end_time','$current_time')");
+
         $package = 'Aerial/Spinning - Single Class';
-    elseif ($paidAmount == 666)
+    }
+    elseif ($paidAmount == 666){
+        $end_time= date('Y-m-d H:i:s', strtotime($current_time. ' + 1 months'));
+        $class=4;
+        $insert = $db_handle->insertQuery("INSERT INTO `class_schedule_limit`(`customer_id`, `class_number`, `purchase_date`, `end_date`, `inserted_at`) VALUES ('$user_id','$class','$current_time','$end_time','$current_time')");
+
         $package = 'Aerial/Spinning - 4 Classes (1 Month Limit)';
-    elseif ($paidAmount == 1588)
+    }
+    elseif ($paidAmount == 1588){
+        $end_time= date('Y-m-d H:i:s', strtotime($current_time. ' + 3 months'));
+        $class=10;
+        $insert = $db_handle->insertQuery("INSERT INTO `class_schedule_limit`(`customer_id`, `class_number`, `purchase_date`, `end_date`, `inserted_at`) VALUES ('$user_id','$class','$current_time','$end_time','$current_time')");
+
         $package = 'Aerial/Spinning - 10 Classes (3 Months Limit)';
-    elseif ($paidAmount == 1888)
+    }
+    elseif ($paidAmount == 1888){
+        $end_time= date('Y-m-d H:i:s', strtotime($current_time. ' + 4 months'));
+        $class=10;
+        $insert = $db_handle->insertQuery("INSERT INTO `class_schedule_limit`(`customer_id`, `class_number`, `purchase_date`, `end_date`, `inserted_at`) VALUES ('$user_id','$class','$current_time','$end_time','$current_time')");
+
         $package = 'Aerial/Spinning - 10 Classes (4 Months Limit)';
-    elseif ($paidAmount == 2998)
+    }
+    elseif ($paidAmount == 2998){
+        $end_time= date('Y-m-d H:i:s', strtotime($current_time. ' + 6 months'));
+        $class=20;
+        $insert = $db_handle->insertQuery("INSERT INTO `class_schedule_limit`(`customer_id`, `class_number`, `purchase_date`, `end_date`, `inserted_at`) VALUES ('$user_id','$class','$current_time','$end_time','$current_time')");
+
         $package = 'Aerial/Spinning - 20 Classes (6 Months Limit)';
-    elseif ($paidAmount == 1988)
+    }
+    elseif ($paidAmount == 1988){
+        $end_time= date('Y-m-d H:i:s', strtotime($current_time. ' + 12 months'));
+        $class=100;
+        $insert = $db_handle->insertQuery("INSERT INTO `class_schedule_limit`(`customer_id`, `class_number`, `purchase_date`, `end_date`, `inserted_at`) VALUES ('$user_id','$class','$current_time','$end_time','$current_time')");
+
         $package = 'All you can join package';
-    elseif ($paidAmount == 108)
+    }
+    elseif ($paidAmount == 108){
+        $end_time= date('Y-m-d H:i:s', strtotime($current_time. ' + 12 months'));
+        $class=1;
+        $insert = $db_handle->insertQuery("INSERT INTO `class_schedule_limit`(`customer_id`, `class_number`, `purchase_date`, `end_date`, `inserted_at`) VALUES ('$user_id','$class','$current_time','$end_time','$current_time')");
+
         $package = '8月體驗價 $108 / 1堂';
-    elseif ($paidAmount == 1600)
+    }
+    elseif ($paidAmount == 1600) {
+        $end_time= date('Y-m-d H:i:s', strtotime($current_time. ' + 12 months'));
+        $class=5;
+        $insert = $db_handle->insertQuery("INSERT INTO `class_schedule_limit`(`customer_id`, `class_number`, `purchase_date`, `end_date`, `inserted_at`) VALUES ('$user_id','$class','$current_time','$end_time','$current_time')");
+
         $package = '雙人瑜珈(一人) /5堂';
-    elseif ($paidAmount == 2900)
+    }
+    elseif ($paidAmount == 2900){
+        $end_time= date('Y-m-d H:i:s', strtotime($current_time. ' + 12 months'));
+        $class=5;
+        $insert = $db_handle->insertQuery("INSERT INTO `class_schedule_limit`(`customer_id`, `class_number`, `purchase_date`, `end_date`, `inserted_at`) VALUES ('$user_id','$class','$current_time','$end_time','$current_time')");
+
         $package = '二人同行(每人)$1450 /5堂';
+    }
 
     $email_to_1 = $customer_email; // First recipient's email address
     $email_to_2 = 'dahliastudiohk@gmail.com'; // Second recipient's email address
