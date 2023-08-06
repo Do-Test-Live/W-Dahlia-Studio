@@ -11,23 +11,20 @@ if (isset($_POST['submit'])) {
     foreach ($timeslots as $timeslot) {
         $startTime = $timeslot['startTime'];
         $endTime = $timeslot['endTime'];
-        $description = $timeslot['description'];
-        $package = $timeslot['package'];
-        $level = $timeslot['level'];
-        $color = $timeslot['color'];
-        $inserted_at=date('Y-m-d h:i:s');
+        $inserted_at = date('Y-m-d h:i:s');
 
-        $insert_user = $db_handle->insertQuery("INSERT INTO `timeslot`(`date`,`time_start`, `time_end`, `description`, `package`, `level`, `color`, `inserted_at`) VALUES ('$date','$startTime','$endTime','$description','$package','$level','$color','$inserted_at')");
+
+        $insert_user = $db_handle->insertQuery("INSERT INTO `timeslot`(`date`,`time_start`, `time_end`, `inserted_at`) VALUES ('$date','$startTime','$endTime','$inserted_at')");
+
     }
 
     ?>
     <script>
         alert('Timeslot added');
-        window.location.href="timeslot.php";
+        window.location.href = "bookdata.php";
     </script>
     <?php
 }
-
 
 
 ?>
@@ -69,7 +66,7 @@ if (isset($_POST['submit'])) {
                 <div class="card shadow mb-4">
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Book Time</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Add Time</h6>
                         </div>
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
@@ -81,34 +78,22 @@ if (isset($_POST['submit'])) {
                                                     <div class="col-12 mb-3">
                                                         <h5>Timeslot <?php echo $i; ?></h5>
                                                     </div>
-                                                    <div class="col-lg-2 col-md-3 mb-3">
+                                                    <div class="col-6 mb-3">
                                                         <label>Start Time</label>
-                                                        <input type="time" class="form-control" name="timeslots[<?php echo $i; ?>][startTime]"/>
+                                                        <input type="time" class="form-control"
+                                                               name="timeslots[<?php echo $i; ?>][startTime]"/>
                                                     </div>
-                                                    <div class="col-lg-2 col-md-3 mb-3">
+                                                    <div class="col-6 mb-3">
                                                         <label>End Time</label>
-                                                        <input type="time" class="form-control" name="timeslots[<?php echo $i; ?>][endTime]"/>
-                                                    </div>
-                                                    <div class="col-lg-2 col-md-3 mb-3">
-                                                        <label>Description</label>
-                                                        <input type="text" class="form-control" name="timeslots[<?php echo $i; ?>][description]"/>
-                                                    </div>
-                                                    <div class="col-lg-2 col-md-3 mb-3">
-                                                        <label>Package</label>
-                                                        <input type="text" class="form-control" name="timeslots[<?php echo $i; ?>][package]"/>
-                                                    </div>
-                                                    <div class="col-lg-2 col-md-3 mb-3">
-                                                        <label>Level</label>
-                                                        <input type="text" class="form-control" name="timeslots[<?php echo $i; ?>][level]"/>
-                                                    </div>
-                                                    <div class="col-lg-2 col-md-3 mb-3">
-                                                        <label>Color</label>
-                                                        <input type="color" class="form-control" name="timeslots[<?php echo $i; ?>][color]"/>
+                                                        <input type="time" class="form-control"
+                                                               name="timeslots[<?php echo $i; ?>][endTime]"/>
                                                     </div>
                                                 </div>
                                             <?php endfor; ?>
-                                            <input type="hidden" value="<?php echo $_GET['date']; ?>" class="form-control" name="date"/>
-                                            <button type="submit" name="submit" class="btn btn-primary">Add Book Time</button>
+                                            <input type="hidden" value="<?php echo $_GET['date']; ?>"
+                                                   class="form-control" name="date"/>
+                                            <button type="submit" name="submit" class="btn btn-primary">Add Book Time
+                                            </button>
                                         </form>
 
                                     </div>

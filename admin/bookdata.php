@@ -3,27 +3,48 @@ session_start();
 include('../includes/dbConnect.php');
 $db_handle = new DBController();
 
-if(isset($_POST['submit'])){
-    $date=$db_handle->checkValue($_POST['date']);
-    $insert_user = $db_handle->insertQuery("INSERT INTO `date_slot`( `date`) VALUES ('$date')");
-    if($insert_user){
+if (isset($_POST['submit'])) {
+    $date = $db_handle->checkValue($_POST['date']);
+
+    $row = $db_handle->numRows("SELECT * FROM date_slot where date='$date'");
+
+    if ($row == 0) {
+        $insert_user = $db_handle->insertQuery("INSERT INTO `date_slot`( `date`) VALUES ('$date')");
+        if ($insert_user) {
+            ?>
+            <script>
+                alert('Book Time Added');
+                window.location.href = "timeslot.php?date=<?php echo $date; ?>";
+            </script>
+            <?php
+        }
+    } else {
         ?>
         <script>
-            alert('Book Time Added');
-            window.location.href="timeslot.php?date=<?php echo $date; ?>";
+            alert('Time Already Added');
+            window.location.href = "bookdata.php";
         </script>
         <?php
     }
+
 }
 
-if(isset($_GET['book_id'])){
-    $book_id=$db_handle->checkValue($_GET['book_id']);
+if (isset($_GET['book_id'])) {
+    $book_id = $db_handle->checkValue($_GET['book_id']);
+
+    $data = $db_handle->runQuery("SELECT * FROM date_slot where id='$book_id'");
+
+    $date = $data[0]['date'];
+
     $delete = $db_handle->insertQuery("DELETE FROM `date_slot` WHERE id='$book_id'");
-    if($delete){
+
+    $delete = $db_handle->insertQuery("DELETE FROM `timeslot` WHERE date='$date'");
+
+    if ($delete) {
         ?>
         <script>
             alert('Booked Data Release');
-            window.location.href="bookdata.php";
+            window.location.href = "bookdata.php";
         </script>
         <?php
     }
@@ -67,13 +88,13 @@ if(isset($_GET['book_id'])){
                 <div class="card shadow mb-4">
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Book Time</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Class Time</h6>
                         </div>
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
                                     <div class="font-weight-bold text-primary text-uppercase mb-1">
-                                        Book Time
+                                        Select Date
                                     </div>
                                     <div class="h5 mb-0 font-weight-bold text-gray-800">
                                         <form action="" method="post">
@@ -91,13 +112,14 @@ if(isset($_GET['book_id'])){
                     </div>
                 </div>
 
+
                 <!-- Page Heading -->
-                <h1 class="h3 mb-2 text-gray-800">Slot Data</h1>
+                <h1 class="h3 mb-2 text-gray-800">Date Slot</h1>
 
                 <!-- DataTales Example -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Slot Data</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Date Slot</h6>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -106,23 +128,35 @@ if(isset($_GET['book_id'])){
                                 <tr>
                                     <th>SL</th>
                                     <th>Date</th>
+                                    <th class="text-center">Action</th>
                                 </tr>
                                 </thead>
                                 <tfoot>
                                 <tr>
                                     <th>SL</th>
                                     <th>Date</th>
+                                    <th class="text-center">Action</th>
                                 </tr>
                                 </tfoot>
                                 <tbody>
                                 <?php
-                                $data = $db_handle->runQuery("SELECT * FROM date_slot order by id desc");
-                                $row_count = $db_handle->numRows("SELECT * FROM date_slot order by id desc");
+                                $query="SELECT * FROM date_slot order by date desc";
+
+                                $data = $db_handle->runQuery($query);
+                                $row_count = $db_handle->numRows($query);
+
                                 for ($i = 0; $i < $row_count; $i++) {
                                     ?>
                                     <tr>
                                         <td><?php echo $i + 1; ?></td>
                                         <td><?php echo $data[$i]["date"]; ?></td>
+                                        <td class="text-center">
+                                            <a href="viewdata.php?date=<?php echo $data[$i]["date"]; ?>"
+                                               class="btn btn-info me-2">View</a>
+
+                                            <a href="bookdata.php?book_id=<?php echo $data[$i]["id"]; ?>"
+                                               class="btn btn-danger">Delete</a>
+                                        </td>
                                     </tr>
                                 <?php } ?>
                                 </tbody>
@@ -171,6 +205,12 @@ if(isset($_GET['book_id'])){
 </div>
 
 <?php require_once 'include/js.php'; ?>
+<script>
+    // Call the dataTables jQuery plugin
+    $(document).ready(function() {
+        $('#timeTable').DataTable();
+    });
+</script>
 </body>
 
 </html>

@@ -29,23 +29,9 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-           aria-expanded="true" aria-controls="collapseTwo">
+        <a class="nav-link" href="bookdata.php">
             <i class="fas fa-fw fa-cog"></i>
-            <span>Data</span>
-        </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Data:</h6>
-                <a class="collapse-item" href="bookdata.php">Book Data</a>
-            </div>
-        </div>
-    </li>
-    <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item">
-        <a class="nav-link" href="changetime.php">
-            <i class="fas fa-fw fa-cog"></i>
-            <span>Change Time Slot</span>
+            <span>Class Schedule</span>
         </a>
     </li>
 
