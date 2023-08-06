@@ -75,6 +75,9 @@ if(isset($_SESSION['userid'])){
                             <li class="nav-item">
                                 <a class="nav-link" href="index.php#Services">服務</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.php#pricing">課堂收費及套票</a>
+                            </li>
                             <?php
                             if(isset($_SESSION['userid'])){
                                 ?>
@@ -221,7 +224,7 @@ if(isset($_SESSION['userid'])){
     </div>
 </section>-->
 
-<section class="pricing_plans_section" id="Pricing">
+<section class="pricing_plans_section" id="pricing">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
