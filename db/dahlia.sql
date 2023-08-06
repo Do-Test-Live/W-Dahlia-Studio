@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 27, 2023 at 10:07 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Generation Time: Aug 06, 2023 at 07:10 AM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.0.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -36,7 +36,7 @@ CREATE TABLE `admin_login` (
   `password` varchar(20) NOT NULL,
   `role` varchar(15) NOT NULL DEFAULT 'sales',
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `admin_login`
@@ -44,7 +44,7 @@ CREATE TABLE `admin_login` (
 
 INSERT INTO `admin_login` (`id`, `name`, `ip`, `image`, `email`, `password`, `role`, `updated_at`) VALUES
 (1, 'Monoget Saha', '27.147.190.199', 'public/images/profile/monoget.png', 'monoget1@gmail.com', '@BCD1234', 'admin', '2022-02-06 11:16:17'),
-(2, 'Super Admin', '103.107.160.134', 'public/images/avatar-01.jpg', 'test@dahlia.com', '@BCD1234', 'admin', '2023-07-27 07:07:18');
+(2, 'Super Admin', '103.107.160.134', 'public/images/avatar-01.jpg', 'admin@dahlia.com', '@BCD1234', 'admin', '2023-08-01 09:41:01');
 
 -- --------------------------------------------------------
 
@@ -58,7 +58,35 @@ CREATE TABLE `book` (
   `address` varchar(250) NOT NULL,
   `phone` varchar(20) NOT NULL,
   `inserted_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `customer`
+--
+
+CREATE TABLE `customer` (
+  `id` int(11) NOT NULL,
+  `customer_name` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `number` varchar(20) NOT NULL,
+  `address` varchar(250) NOT NULL,
+  `city` varchar(50) NOT NULL,
+  `zip_code` varchar(20) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `profile_image` varchar(200) NOT NULL,
+  `membership_point` int(10) NOT NULL,
+  `inserted_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `customer`
+--
+
+INSERT INTO `customer` (`id`, `customer_name`, `email`, `number`, `address`, `city`, `zip_code`, `password`, `profile_image`, `membership_point`, `inserted_at`, `updated_at`) VALUES
+(1, 'Test User', 'test@test.com', '00000000', '', '', '', '@BCD1234', '', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -70,7 +98,7 @@ CREATE TABLE `date_slot` (
   `id` int(11) NOT NULL,
   `date` date NOT NULL,
   `inserted_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `date_slot`
@@ -100,7 +128,7 @@ CREATE TABLE `timeslot` (
   `level` varchar(200) NOT NULL,
   `color` varchar(20) NOT NULL,
   `inserted_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `timeslot`
@@ -124,6 +152,38 @@ INSERT INTO `timeslot` (`id`, `date`, `time_start`, `time_end`, `description`, `
 (15, '2023-07-29', '18:08:00', '17:07:00', 'rghdrthg', 'rggr', 'gxzrgr', '#b71f1f', '2023-07-27 10:05:26'),
 (16, '2023-07-29', '00:00:00', '00:00:00', '', '', '', '#000000', '2023-07-27 10:05:26');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `transactions`
+--
+
+CREATE TABLE `transactions` (
+  `id` int(11) NOT NULL,
+  `billing_id` int(11) NOT NULL,
+  `customer_name` varchar(50) NOT NULL,
+  `customer_email` varchar(50) NOT NULL,
+  `item_name` varchar(255) NOT NULL,
+  `item_number` varchar(50) NOT NULL,
+  `item_price` float(10,2) NOT NULL,
+  `item_price_currency` varchar(10) NOT NULL,
+  `paid_amount` float(10,2) NOT NULL,
+  `paid_amount_currency` varchar(10) NOT NULL,
+  `txn_id` varchar(50) NOT NULL,
+  `payment_status` varchar(25) NOT NULL,
+  `stripe_checkout_session_id` varchar(100) DEFAULT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `transactions`
+--
+
+INSERT INTO `transactions` (`id`, `billing_id`, `customer_name`, `customer_email`, `item_name`, `item_number`, `item_price`, `item_price_currency`, `paid_amount`, `paid_amount_currency`, `txn_id`, `payment_status`, `stripe_checkout_session_id`, `created`, `modified`) VALUES
+(1, 100, 'Test', 'test@test.com', '1小時30分鐘租場服務', 'DP12345', 190.00, 'hkd', 180.00, 'hkd', 'pi_3NaCqbDPX938f2061qZhTQRh', 'succeeded', 'cs_test_a1WSCFZE1s5eZrLqh46hoF5Ec29IgkEiX1ltlN1Ec9MHjpc557rCQ2CEFC', '2023-08-01 13:18:27', '2023-08-01 13:18:27'),
+(2, 1, 'Test', 'test@test.com', '1小時30分鐘租場服務', 'DP12345', 190.00, 'hkd', 108.00, 'hkd', 'pi_3NaF2DDPX938f2062ylaqCDH', 'succeeded', 'cs_test_a1W89GaABzrKqMxnxl6KZUoxGKMkh4WRFJgzzOOsSMwEKcQ6sYH48395qx', '2023-08-01 15:38:37', '2023-08-01 15:38:37');
+
 --
 -- Indexes for dumped tables
 --
@@ -132,6 +192,12 @@ INSERT INTO `timeslot` (`id`, `date`, `time_start`, `time_end`, `description`, `
 -- Indexes for table `admin_login`
 --
 ALTER TABLE `admin_login`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `customer`
+--
+ALTER TABLE `customer`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -147,6 +213,12 @@ ALTER TABLE `timeslot`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `transactions`
+--
+ALTER TABLE `transactions`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -155,6 +227,12 @@ ALTER TABLE `timeslot`
 --
 ALTER TABLE `admin_login`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `customer`
+--
+ALTER TABLE `customer`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `date_slot`
@@ -167,6 +245,12 @@ ALTER TABLE `date_slot`
 --
 ALTER TABLE `timeslot`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT for table `transactions`
+--
+ALTER TABLE `transactions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
