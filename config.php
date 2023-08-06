@@ -23,3 +23,8 @@ define('DB_USERNAME', 'root');
 define('DB_PASSWORD', '');
 define('DB_NAME', 'dahlia');
 
+/*define('DB_HOST', 'localhost');
+define('DB_USERNAME', 'urnejs8acqirl');
+define('DB_PASSWORD', '2r#4+*%r|q66');
+define('DB_NAME', 'dbyz86b8fxizhu');*/
+

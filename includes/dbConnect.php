@@ -7,11 +7,11 @@ class DBController {
     private $conn;
 
     function __construct() {
-        if($_SERVER['SERVER_NAME']=="dahlia.ngt.hk"||$_SERVER['SERVER_NAME']=="www.dahlia.ngt.hk"){
+        if($_SERVER['SERVER_NAME']=="test.dahliastudiohk.com"||$_SERVER['SERVER_NAME']=="www.test.dahliastudiohk.com"){
             $this->host = "localhost";
-            $this->user = "ucjvngtprhf4j";
-            $this->password = "u3!GIE1=]#qm";
-            $this->database = "db10j1jsta6jye";
+            $this->user = "urnejs8acqirl";
+            $this->password = "2r#4+*%r|q66";
+            $this->database = "dbyz86b8fxizhu";
         }
 
         $this->conn = $this->connectDB();

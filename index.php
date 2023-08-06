@@ -73,10 +73,13 @@ if(isset($_SESSION['userid'])){
                                 <a class="nav-link" href="index.php#AboutUs">關於我們</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="index.php#Services">服務</a>
+                                <a class="nav-link" href="index.php#Services">課程時間表</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="index.php#pricing">課堂收費及套票</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="details.php">最新優惠</a>
                             </li>
                             <?php
                             if(isset($_SESSION['userid'])){
@@ -96,9 +99,9 @@ if(isset($_SESSION['userid'])){
                                 <?php
                             }
                             ?>
-                            <li class="nav-item">
+                            <!--<li class="nav-item">
                                 <a class="nav-link contact_us" href="index.php#footer_section">聯絡我們</a>
-                            </li>
+                            </li>-->
                         </ul>
                     </div>
                 </nav>
@@ -136,7 +139,7 @@ if(isset($_SESSION['userid'])){
                         <h4>Dahlia 提供市場上的瑜珈運動, 也會有身心靈瑜珈。</br>
                             普通的空中、wheel hatha, stretch等, 身心靈的singing bowl , sound therapy 等。 </h4>
                         <div class="btn_wrapper" data-aos="fade-up">
-                            <a class="text-decoration-none getstarted_btn" href="login.php">登記</a>
+                            <a class="text-decoration-none getstarted_btn" href="login.php">預約課堂</a>
                         </div>
                         <!--<a class="top-btn" href="index.php#footer_section">
                             <i class="fa-solid fa-arrow-down-long"></i>
@@ -896,7 +899,7 @@ if(isset($_SESSION['userid'])){
                                 <a href="index.php#AboutUs">關於我們</a>
                             </li>
                             <li>
-                                <a href="index.php#Services">服務</a>
+                                <a href="index.php#Services">課程時間表</a>
                             </li>
                             <li>
                                 <a class="nav-link" href="https://wa.me/+85298839552" target="_blank">登記</a>
