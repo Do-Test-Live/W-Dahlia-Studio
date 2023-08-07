@@ -129,13 +129,14 @@ if(isset($_SESSION['userid'])){
             </ul>
         </div>
     </div>
+
     <!-- BANNER SECTION -->
-    <section class="banner-section" style="padding: 50px 292px 300px;">
+    <section class="banner-section">
         <div class="container-fluid">
             <div class="row" data-aos="fade-up">
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-md-left text-center">
                     <div class="banner-section-content">
-                        <h1 data-aos="fade-up" class="banner-text" style="font-size: 50px; line-height: 70px">8月體驗價 </br> $108 / 1堂 </h1>
+                        <h1 data-aos="fade-up" class="banner-text" style="font-size: 50px; line-height: 70px">8月體驗價 $108 / 1堂 </h1>
                         <div class="btn_wrapper" data-aos="fade-up">
                             <a class="text-decoration-none getstarted_btn" <?php if (isset($_SESSION['userid'])) {
                             ?>data-toggle="modal" data-target="#exampleModal3"<?php
@@ -147,13 +148,6 @@ if(isset($_SESSION['userid'])){
                         <!--<a class="top-btn" href="index.php#footer_section">
                             <i class="fa-solid fa-arrow-down-long"></i>
                         </a>-->
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class="banner-section-image">
-                        <figure class="mb-0">
-                            <img src="assets/images/banner_right_image.png" alt="">
-                        </figure>
                     </div>
                 </div>
             </div>

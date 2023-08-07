@@ -8,14 +8,22 @@ if(isset($_POST['signup'])){
     $number = $db_handle->checkValue($_POST['number']);
     $password = $db_handle->checkValue($_POST['password']);
 
-    $add_customer = $db_handle->insertQuery("INSERT INTO `customer`(`customer_name`, `email`, `number`, `password`) VALUES ('$name','$email','$number','$password')");
-    if($add_customer){
-        $fetch_customer = $db_handle->runQuery("select id from customer order by id desc limit 1");
-        session_start();
-        $_SESSION['userid'] = $fetch_customer[0]['id'];
-        echo "<script>
+    $customer_check = $db_handle->numRows("select id from customer where email = '$email'");
+    if($customer_check <= 0){
+        $add_customer = $db_handle->insertQuery("INSERT INTO `customer`(`customer_name`, `email`, `number`, `password`) VALUES ('$name','$email','$number','$password')");
+        if($add_customer){
+            $fetch_customer = $db_handle->runQuery("select id from customer order by id desc limit 1");
+            session_start();
+            $_SESSION['userid'] = $fetch_customer[0]['id'];
+            echo "<script>
 alert('帳戶創建成功');
 window.location.href = 'index.php';
+</script>";
+        }
+    } else{
+        echo "<script>
+alert('您輸入的電子郵件已在我們系統中註冊過。');
+window.location.href = 'login.php';
 </script>";
     }
 }
@@ -36,8 +44,8 @@ window.location.href = 'index.php';
 </script>";
     } else{
         echo "<script>
-alert('抱歉！出了些問題');
-window.location.href = 'index.php';
+alert('電子郵件或密碼不正確。');
+window.location.href = 'login.php';
 </script>";
     }
 }
@@ -80,6 +88,7 @@ window.location.href = 'index.php';
                     <input type="submit" name="login" value="登入">
                 </div>
                 <div style="margin-top: 20px;"> <a href="index.php">返回主頁</a></div>
+                <!--<div style="margin-top: 20px;"> <a href="forget_pass.php">忘記密碼</a></div>-->
             </form>
             <form action="#" class="signup" method="post">
                 <div class="field">

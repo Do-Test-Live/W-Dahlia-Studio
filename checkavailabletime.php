@@ -15,7 +15,6 @@ if (isset($_POST['date'])) {
     $row = $db_handle->numRows($query);
 
     ?>
-    <option selected>Choose</option>
     <?php
 
     for ($i = 0; $i < $row; $i++) {
