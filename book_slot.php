@@ -73,11 +73,20 @@ if(isset($_SESSION['userid'])){
                                 <a class="nav-link" href="index.php#AboutUs">關於我們</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="index.php#Services">服務</a>
+                                <a class="nav-link" href="index.php#Services">課程時間表</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.php#pricing">課堂收費及套票</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="details.php">最新優惠</a>
                             </li>
                             <?php
                             if(isset($_SESSION['userid'])){
                                 ?>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="book.php">會員中心</a>
+                                </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="logout.php">登出</a>
                                 </li>
@@ -90,9 +99,9 @@ if(isset($_SESSION['userid'])){
                                 <?php
                             }
                             ?>
-                            <li class="nav-item">
+                            <!--<li class="nav-item">
                                 <a class="nav-link contact_us" href="index.php#footer_section">聯絡我們</a>
-                            </li>
+                            </li>-->
                         </ul>
                     </div>
                 </nav>

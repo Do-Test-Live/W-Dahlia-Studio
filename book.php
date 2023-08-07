@@ -13,14 +13,27 @@ if(isset($_POST['book'])){
     $userid = $_SESSION['userid'];
     $current_time = date("Y-m-d H:i:s");
 
-    $insert_user = $db_handle->insertQuery("INSERT INTO `booked_schedule`(`customer_id`, `booked_date`, `booked_time`, `inserted_at`) VALUES ('$userid','$date','$time','$current_time')");
-    if ($insert_user) {
-        ?>
-        <script>
-            alert('Book Time Added');
-            window.location.href = "book.php.php";
-        </script>
-        <?php
+    $fetch_total_class = $db_handle->runQuery("select `class_number` from `class_schedule_limit` where `customer_id` = '$userid'");
+    $total_class = $fetch_total_class[0]['class_number'];
+    if($total_class > 0){
+        $insert_user = $db_handle->insertQuery("INSERT INTO `booked_schedule`(`customer_id`, `booked_date`, `booked_time`, `inserted_at`) VALUES ('$userid','$date','$time','$current_time')");
+        if ($insert_user) {
+                $update_class = $total_class - 1;
+                $update_total_time = $db_handle->insertQuery("UPDATE `class_schedule_limit` SET `class_number`='$update_class',`updated_at`='$current_time' WHERE `customer_id` = '$userid'");
+                if($update_total_time){
+                    ?>
+                    <script>
+                        alert('Book Time Added');
+                        window.location.href = "book.php";
+                    </script>
+                    <?php
+                }
+        }
+    }else{
+        echo "<script>
+        alert('All your slots are booked');
+        window.location.href = 'book.php';
+        </script>";
     }
 }
 ?>
@@ -91,13 +104,16 @@ if(isset($_POST['book'])){
                                 <a class="nav-link" href="index.php#AboutUs">關於我們</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="index.php#Services">服務</a>
+                                <a class="nav-link" href="index.php#Services">課程時間表</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="index.php#pricing">課堂收費及套票</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="details.php">最新優惠</a>
+                            </li>
                             <?php
-                            if (isset($_SESSION['userid'])) {
+                            if(isset($_SESSION['userid'])){
                                 ?>
                                 <li class="nav-item">
                                     <a class="nav-link" href="book.php">會員中心</a>
@@ -106,7 +122,7 @@ if(isset($_POST['book'])){
                                     <a class="nav-link" href="logout.php">登出</a>
                                 </li>
                                 <?php
-                            } else {
+                            } else{
                                 ?>
                                 <li class="nav-item">
                                     <a class="nav-link" href="login.php">登入/註冊</a>
@@ -114,9 +130,9 @@ if(isset($_POST['book'])){
                                 <?php
                             }
                             ?>
-                            <li class="nav-item">
+                            <!--<li class="nav-item">
                                 <a class="nav-link contact_us" href="index.php#footer_section">聯絡我們</a>
-                            </li>
+                            </li>-->
                         </ul>
                     </div>
                 </nav>
@@ -142,7 +158,7 @@ if(isset($_POST['book'])){
                             $class = $data[0]['class_number'];
                         }
                         ?>
-                        You have <?php echo $class; ?> book left in you account.
+                        You have <?php echo $class; ?> book left in your account.
                     </p>
                 </div>
                 <?php
@@ -182,14 +198,14 @@ if(isset($_POST['book'])){
                     </thead>
                     <tbody>
                     <?php
-                    $fetch_customer_data = $db_handle->runQuery("select * from booked_schedule where custome_id = '$userid'");
-                    $row = $db_handle->numRows("select * from booked_schedule where custome_id = '$userid'");
+                    $fetch_customer_data = $db_handle->runQuery("select * from booked_schedule where customer_id = '$userid'");
+                    $row = $db_handle->numRows("select * from booked_schedule where customer_id = '$userid'");
                     for($i=0;$i<$row;$i++){
                         ?>
                         <tr>
                             <th scope="row"><?php echo $i+1; ?></th>
                             <td><?php echo $fetch_customer_data[$i]['booked_date']; ?></td>
-                            <td><?php echo $fetch_customer_data[$i]['booked_date']; ?></td>
+                            <td><?php echo $fetch_customer_data[$i]['booked_time']; ?></td>
                         </tr>
                     <?php
                     }

@@ -83,7 +83,7 @@ window.location.href = 'index.php';
             </form>
             <form action="#" class="signup" method="post">
                 <div class="field">
-                    <input type="text" placeholder="全名" name="name" required>
+                    <input type="text" placeholder="名稱" name="name" required>
                 </div>
                 <div class="field">
                     <input type="email" placeholder="電子郵件地址" name="email" required>

@@ -277,7 +277,7 @@ if (!empty($_GET['session_id'])) {
     if ($mail->send()) {
         echo "<script>
 alert('Payment Successful! A mail with details has been sent to your email.');
-window.location.href = 'index.php';
+window.location.href = 'book.php';
 </script>";
         exit;
     } else {

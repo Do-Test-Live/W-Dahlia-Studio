@@ -619,7 +619,7 @@ if(isset($_SESSION['userid'])){
                     <div class="form-check">
                         <input class="form-check-input" name="package" type="radio" value="108" required>
                         <label class="form-check-label">
-                            8月就再加$108/1堂
+                            8月體驗價 $108 / 1堂
                         </label>
                     </div>
                     <div class="modal-footer">
@@ -893,17 +893,35 @@ if(isset($_SESSION['userid'])){
                         <h4>快速鏈接</h4>
                         <ul class="list-unstyled">
                             <li>
-                                <a href="index.php">首頁</a>
+                                <a class="nav-link" href="index.php">首頁</a>
                             </li>
                             <li>
-                                <a href="index.php#AboutUs">關於我們</a>
+                                <a class="nav-link" href="index.php#AboutUs">關於我們</a>
                             </li>
                             <li>
-                                <a href="index.php#Services">課程時間表</a>
+                                <a class="nav-link" href="index.php#Services">課程時間表</a>
                             </li>
                             <li>
-                                <a class="nav-link" href="https://wa.me/+85298839552" target="_blank">登記</a>
+                                <a class="nav-link" href="index.php#pricing">課堂收費及套票</a>
                             </li>
+                            <li>
+                                <a class="nav-link" href="details.php">最新優惠</a>
+                            </li>
+                            <?php
+                            if(isset($_SESSION['userid'])){
+                                ?>
+                                <li>
+                                    <a class="nav-link" href="book.php">會員中心</a>
+                                </li>
+                                <?php
+                            } else{
+                                ?>
+                                <li>
+                                    <a class="nav-link" href="login.php">登入/註冊</a>
+                                </li>
+                                <?php
+                            }
+                            ?>
                             <!--<li>
                                 <a  href="index.php#Pricing">Pricing</a>
                             </li>

@@ -230,7 +230,7 @@ if(isset($_SESSION['userid'])){
                     <div class="form-check">
                         <input class="form-check-input" name="package" type="radio" value="108" required>
                         <label class="form-check-label">
-                            8月就再加$108/1堂
+                            8月體驗價 $108 / 1堂
                         </label>
                     </div>
                     <div class="modal-footer">
