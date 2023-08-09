@@ -188,7 +188,7 @@ if(isset($_POST['book'])){
                 }
                 ?>
 
-                <table class="table" width="100%">
+                <table class="table mt-5" width="100%">
                     <thead>
                     <tr>
                         <th scope="col">#</th>

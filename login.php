@@ -16,15 +16,15 @@ if(isset($_POST['signup'])){
             session_start();
             $_SESSION['userid'] = $fetch_customer[0]['id'];
             echo "<script>
-alert('帳戶創建成功');
-window.location.href = 'index.php';
-</script>";
+                    alert('帳戶創建成功');
+                    window.location.href = 'index.php';
+                    </script>";
         }
     } else{
         echo "<script>
-alert('您輸入的電子郵件已在我們系統中註冊過。');
-window.location.href = 'login.php';
-</script>";
+                alert('您輸入的電子郵件已在我們系統中註冊過。');
+                window.location.href = 'login.php';
+                </script>";
     }
 }
 
@@ -39,14 +39,14 @@ if(isset($_POST['login'])){
         session_start();
         $_SESSION['userid'] = $fetch_customer[0]['id'];
         echo "<script>
-alert('登入成功');
-window.location.href = 'index.php';
-</script>";
+                alert('登入成功');
+                window.location.href = 'index.php';
+                </script>";
     } else{
         echo "<script>
-alert('電子郵件或密碼不正確。');
-window.location.href = 'login.php';
-</script>";
+                alert('電子郵件或密碼不正確。');
+                window.location.href = 'login.php';
+                </script>";
     }
 }
 ?>
@@ -90,7 +90,7 @@ window.location.href = 'login.php';
                 <div style="margin-top: 20px;"> <a href="index.php">返回主頁</a></div>
                 <!--<div style="margin-top: 20px;"> <a href="forget_pass.php">忘記密碼</a></div>-->
             </form>
-            <form action="#" class="signup" method="post">
+            <form action="" class="signup" method="post">
                 <div class="field">
                     <input type="text" placeholder="名稱" name="name" required>
                 </div>

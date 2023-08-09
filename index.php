@@ -139,7 +139,17 @@ if(isset($_SESSION['userid'])){
                         <h4>Dahlia 提供市場上的瑜珈運動, 也會有身心靈瑜珈。</br>
                             普通的空中、wheel hatha, stretch等, 身心靈的singing bowl , sound therapy 等。 </h4>
                         <div class="btn_wrapper" data-aos="fade-up">
+                            <?php
+                            if(isset($_SESSION['userid'])){
+                            ?>
+                                <a class="text-decoration-none getstarted_btn" href="book.php">預約課堂</a>
+                                <?php
+                            } else{
+                                ?>
                             <a class="text-decoration-none getstarted_btn" href="login.php">預約課堂</a>
+                                <?php
+                            }
+                            ?>
                         </div>
                         <!--<a class="top-btn" href="index.php#footer_section">
                             <i class="fa-solid fa-arrow-down-long"></i>
