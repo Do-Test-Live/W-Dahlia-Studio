@@ -87,7 +87,8 @@ if(isset($_POST['login'])){
                     <div class="btn-layer"></div>
                     <input type="submit" name="login" value="登入">
                 </div>
-                <div style="margin-top: 20px;"> <a href="index.php">返回主頁</a></div>
+                <div style="margin-top: 20px;"><a href="index.php">返回主頁</a></div>
+                <div style="margin-top: 10px;"><a href="forget_pass.php" class="text-decoration-none">忘記密碼?</a></div>
                 <!--<div style="margin-top: 20px;"> <a href="forget_pass.php">忘記密碼</a></div>-->
             </form>
             <form action="" class="signup" method="post">

@@ -4,6 +4,7 @@ class DBController {
     private $user = "root";
     private $password = "";
     private $database = "dahlia";
+    private $notification_email='';
     private $conn;
 
     function __construct() {
@@ -45,5 +46,9 @@ class DBController {
         $result  = mysqli_query($this->conn,$query);
         $rowcount = mysqli_num_rows($result);
         return $rowcount;
+    }
+
+    function notify_email(){
+        return $this->notification_email;
     }
 }
