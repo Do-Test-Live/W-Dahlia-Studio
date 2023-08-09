@@ -7,7 +7,7 @@ class DBController {
     private $conn;
 
     function __construct() {
-        if($_SERVER['SERVER_NAME']=="test.dahliastudiohk.com"||$_SERVER['SERVER_NAME']=="www.test.dahliastudiohk.com"){
+        if($_SERVER['SERVER_NAME']=="dahliastudiohk.com"||$_SERVER['SERVER_NAME']=="www.dahliastudiohk.com"){
             $this->host = "localhost";
             $this->user = "urnejs8acqirl";
             $this->password = "2r#4+*%r|q66";

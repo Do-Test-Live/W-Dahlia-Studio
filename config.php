@@ -14,17 +14,12 @@ $currency = "hkd";
  */
 define('STRIPE_API_KEY', 'sk_test_51NW4QhDPX938f2066VAva2PaHRmLTTu8EJCFYz6JpTDry9Nu52ergxLoDKk1dklM9QzKXUdXGltAQREYA2tYktR6005I8btKVu');
 define('STRIPE_PUBLISHABLE_KEY', 'pk_test_51NW4QhDPX938f206HZX4GzW7BfkO2JRTR6fVYnxdTn7xXnxCXhVBoQMvglUCuWgJnJoXo9jeEVSBZL6XJjcLEIxo00fx0LMOHf');
-define('STRIPE_SUCCESS_URL', 'https://localhost/W-Dahlia-Studio/payment-success.php'); //Payment success URL
-define('STRIPE_CANCEL_URL', 'https://localhost/W-Dahlia-Studio/payment-cancel.php'); //Payment cancel URL
+define('STRIPE_SUCCESS_URL', 'https://dahliastudiohk.com/payment-success.php'); //Payment success URL
+define('STRIPE_CANCEL_URL', 'https://dahliastudiohk.com/payment-cancel.php'); //Payment cancel URL
 
 // Database configuration
 define('DB_HOST', 'localhost');
-define('DB_USERNAME', 'root');
-define('DB_PASSWORD', '');
-define('DB_NAME', 'dahlia');
-
-/*define('DB_HOST', 'localhost');
 define('DB_USERNAME', 'urnejs8acqirl');
 define('DB_PASSWORD', '2r#4+*%r|q66');
-define('DB_NAME', 'dbyz86b8fxizhu');*/
+define('DB_NAME', 'dbyz86b8fxizhu');
 
