@@ -389,7 +389,7 @@ if(isset($_SESSION['userid'])){
                     <div class="pricing_plans_box_lower_portion third_lower_portion">
                         <h3>Regular Class Price</h3>
                         <h3 style="color: #d6809c;">'All you can join' Package</h3>
-                        <div class="pricing_plans_span_wrapper mt-lg-0 mt-5">
+                        <div class="pricing_plans_span_wrapper mt-lg-0 mt-3">
                             <span>$1,988</span>
                             <span>/per month</span>
                         </div>
