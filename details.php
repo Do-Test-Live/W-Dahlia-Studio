@@ -130,7 +130,7 @@ if(isset($_SESSION['userid'])){
         </div>
     </div>
     <!-- BANNER SECTION -->
-    <section class="banner-section" style="padding: 50px 292px 300px;">
+    <section class="banner-section">
         <div class="container-fluid">
             <div class="row" data-aos="fade-up">
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-md-left text-center">
