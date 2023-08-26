@@ -19,7 +19,7 @@ html,body{
 }
 .wrapper{
     overflow: hidden;
-    max-width: 390px;
+    min-width: 390px;
     background: #fff;
     padding: 30px;
     border-radius: 15px;

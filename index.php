@@ -143,7 +143,7 @@ if(isset($_SESSION['userid'])){
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-md-left text-center">
                     <div class="banner-section-content">
                         <h1 data-aos="fade-up" class="banner-text" style="font-size: 22px; line-height: 30px;">Dahlia - Your Modern Wellness Coach </br> 瑜伽工作室 | 致力於身心靈健康培訓 <span class="ityped"></span></h1>
-                        <h4>Dahlia 提供市場上的瑜珈運動, 也會有身心靈瑜珈。</br>
+                        <h4 style="font-weight: 300 !important">Dahlia 提供市場上的瑜珈運動, 也會有身心靈瑜珈。</br>
                             普通的空中、wheel hatha, stretch等, 身心靈的singing bowl , sound therapy 等。 </h4>
                         <div class="btn_wrapper" data-aos="fade-up">
                             <?php

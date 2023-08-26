@@ -1955,6 +1955,7 @@
     p {
         font-size: 14px;
         line-height: 22px;
+        letter-spacing: 3px;
     }
     .banner-section-outer .banner-section p {
         margin-bottom: 18px;
@@ -2736,7 +2737,7 @@
 
 @media screen and (max-width: 575px){
     .main_header {
-        padding: 20px 15px 0;
+        padding: 20px 15px 15px;
     }
     .navbar-brand img {
         width: 141px;
@@ -2747,7 +2748,7 @@
     }
 
     .banner-section-outer .banner-section {
-        padding: 55px 15px 60px;
+        padding: 20px 15px 60px;
     }
     .banner-section-outer .banner-section h1 {
         padding: 0;
@@ -2987,6 +2988,7 @@
     h4 {
         font-size: 14px;
         line-height: 22px;
+        margin-bottom: 15px;
     }
     .blog_posts_image_content i {
         font-size: 16px;
