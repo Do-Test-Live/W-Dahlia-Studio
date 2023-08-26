@@ -95,6 +95,7 @@ p{
 }
 .main_header {
     padding: 40px 292px 40px;
+    background: #ae3362;
 }
 .navbar-collapse ul{
     text-align: center;
@@ -2205,4 +2206,29 @@ textarea {
     .banner-text{
         font-size: 18px;
     }
+}
+
+#whatsapp-button {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 120px;
+    height: 120px;
+    /* background-color: #25d366; */
+    /* border-radius: 50%; */
+    /* box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); */
+    z-index: 999;
+}
+
+#whatsapp-button a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+#whatsapp-button img {
+    width: 50%;
+    height: auto;
 }

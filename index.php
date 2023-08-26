@@ -130,6 +130,13 @@ if(isset($_SESSION['userid'])){
         </div>
     </div>
     <!-- BANNER SECTION -->
+
+    <div id="whatsapp-button">
+        <a href="https://api.whatsapp.com/send?phone=85298839552" target="_blank">
+            <img src="assets/images/whatsapp_icon.png" alt="WhatsApp">
+        </a>
+    </div>
+
     <section class="banner-section">
         <div class="container-fluid">
             <div class="row" data-aos="fade-up">
