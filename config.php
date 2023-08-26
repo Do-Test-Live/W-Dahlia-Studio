@@ -12,8 +12,8 @@ $currency = "hkd";
  * Remember to switch to your live publishable and secret key in production!
  * See your keys here: https://dashboard.stripe.com/account/apikeys
  */
-define('STRIPE_API_KEY', 'sk_test_51NW4QhDPX938f2066VAva2PaHRmLTTu8EJCFYz6JpTDry9Nu52ergxLoDKk1dklM9QzKXUdXGltAQREYA2tYktR6005I8btKVu');
-define('STRIPE_PUBLISHABLE_KEY', 'pk_test_51NW4QhDPX938f206HZX4GzW7BfkO2JRTR6fVYnxdTn7xXnxCXhVBoQMvglUCuWgJnJoXo9jeEVSBZL6XJjcLEIxo00fx0LMOHf');
+define('STRIPE_API_KEY', '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');
+define('STRIPE_PUBLISHABLE_KEY', 'pk_live_51NW4QhDPX938f206X5YkTIyaYOYbttSvUEhdEUjwyMiW2IwY5EtoTLZCcCbgOqW42Cd1k23gAnu8tLRI1K4oQWQH0093lY6MWw');
 define('STRIPE_SUCCESS_URL', 'https://dahliastudiohk.com/payment-success.php'); //Payment success URL
 define('STRIPE_CANCEL_URL', 'https://dahliastudiohk.com/payment-cancel.php'); //Payment cancel URL
 
