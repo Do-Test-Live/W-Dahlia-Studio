@@ -217,6 +217,43 @@ if(isset($_POST['book'])){
     </div>
 </section>
 
+<div class="testimonial_section" id="Services">
+    <div class="container">
+        <div class="row" data-aos="fade-up">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="row text-center">
+                                <div class="col-12 mb-5">
+                                    <h2 style="color: #d6809c">時間表</h2>
+                                </div>
+                            </div>
+                            <div class="testimonial_content">
+                                <img src="assets/images/n4.png" alt="" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                        <i class="fa-solid fa-circle-arrow-left"></i>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                        <i class="fa-solid fa-circle-arrow-right"></i>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <figure class="testimonial_left_shape left_shape mb-0">
+            <img src="assets/images/testimonial_left_shape.png" alt="" class="img-fluid">
+        </figure>
+        <figure class="testimonial_right_shape right_shape mb-0">
+            <img src="assets/images/testimonial_right_shape.png" alt="" class="img-fluid">
+        </figure>
+    </div>
+</div>
+
 <!-- FOOTER SECTION -->
 <section class="footer-section" id="footer_section" style="margin-top: 0 !important;">
     <div class="container">
