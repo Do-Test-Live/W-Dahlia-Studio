@@ -743,6 +743,16 @@ if(isset($_SESSION['userid'])){
                                 </div>
                             </div>
                             <div class="testimonial_content">
+                                <img src="assets/images/nn1.png" alt="" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row text-center">
+                                <div class="col-12 mb-5">
+                                    <h2 style="color: #d6809c">時間表</h2>
+                                </div>
+                            </div>
+                            <div class="testimonial_content">
                                 <img src="assets/images/n1.png" alt="" class="img-fluid">
                             </div>
                         </div>

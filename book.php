@@ -230,7 +230,7 @@ if(isset($_POST['book'])){
                                 </div>
                             </div>
                             <div class="testimonial_content">
-                                <img src="assets/images/n4.png" alt="" class="img-fluid">
+                                <img src="assets/images/nn1.png" alt="" class="img-fluid">
                             </div>
                         </div>
                     </div>
